@@ -1,0 +1,128 @@
+
+@font-face {
+    font-family: AppleGaramond-Light;
+    src: url(fonts/AppleGaramond-Light.ttf);
+    font-weight:100;
+}    
+
+
+@font-face {
+    font-family: AntiqueOliveStd-Black;
+    src: url(/fonts/AntiqueOliveStd-Black.otf);
+    font-weight:200;
+}
+
+
+@font-face {
+    font-family: AntiqueOliveStd-Nord;
+    src: url(fonts/AntiqueOliveStd-Nord.otf);
+    font-weight:100;
+}
+
+
+
+
+html {
+    font-size: 16px;
+
+}
+body {
+    color: blue;
+    font-size: 8px;
+    font-family: AppleGaramond-Light;
+    text-align: left;
+}
+
+p {
+    font-weight:100;
+}
+
+
+
+a:link, a:visited {
+    color: blue; 
+    text-decoration: none;
+
+}
+
+ul, li{
+    list-style-type: none;
+    margin-left: 0px;
+}
+
+.slideshow-container .legende{
+    font-size: 20px;
+    color: blue;
+}
+
+li{
+    color:blue;
+}
+
+
+#album{
+    background-color: #FFFFFF;
+}
+
+#album *{
+    background-color: #FFF !important;
+}
+
+.random_img {
+    height: auto;
+}
+
+
+.block {
+    font-size: 20px;
+}
+
+.resume-container {
+
+}
+
+
+.resume-container p {
+    font-size: 16px;
+}
+
+.main-title {
+    color: blue;
+    padding: 0.4rem;
+    text-decoration: none;
+    border: 1px;
+    border-color: blue;
+    border-style: solid;
+    font-family: AntiqueOliveStd-Nord;
+    transform: rotate(-12deg);
+    z-index: 100;
+    font-size: 1.8rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-left: 10px;
+}
+
+.menu-container {
+    font-size: 2rem;
+}
+
+ img {
+    max-width: 100vw;
+}
+
+
+@media screen and (max-width: 800px) {
+    html, body {
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+
+
+
+
+
