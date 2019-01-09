@@ -7,16 +7,15 @@
 
 
 @font-face {
-    font-family: AntiqueOliveStd-Black;
-    src: url(/fonts/AntiqueOliveStd-Black.otf);
+    font-family: SpaceMono-Italic;
+    src: url(/fonts/SpaceMono-Italic.ttf);
     font-weight:200;
 }
 
-
 @font-face {
-    font-family: AntiqueOliveStd-Nord;
-    src: url(fonts/AntiqueOliveStd-Nord.otf);
-    font-weight:100;
+    font-family: SpaceMono-Regular;
+    src: url(/fonts/SpaceMono-Regular.ttf);
+    font-weight:200;
 }
 
 
@@ -27,101 +26,265 @@ html {
 
 }
 body {
-    color: blue;
-    font-size: 8px;
+    color: rgb(0, 0,255);
     font-family: AppleGaramond-Light;
     text-align: left;
+    margin: 0;
+    /* overflow: hidden; */
+
 }
 
-p {
-    font-weight:100;
+/* Menu */
+
+
+.menu-container {
+    font-size: 2rem;
+    position: fixed;
+    z-index: 200;
 }
 
-
-
-a:link, a:visited {
-    color: blue; 
+.menu-container ul a {
     text-decoration: none;
+    color:  rgb(0, 0,255);
+    cursor: pointer;
 
 }
 
-ul, li{
+.menu-container ul a:hover{
+    text-decoration: none;
+    font-family: SpaceMono-Regular;
+    font-size: 1.5rem;
+    
+    
+}
+
+.menu-container ul, .menu-container li{
     list-style-type: none;
     margin-left: 0px;
-}
-
-.slideshow-container .legende{
-    font-size: 20px;
-    color: blue;
-}
-
-li{
-    color:blue;
-}
-
-
-#album{
-    background-color: #FFFFFF;
-}
-
-#album *{
-    background-color: #FFF !important;
-}
-
-.random_img {
-    height: auto;
-}
-
-
-.block {
-    font-size: 20px;
-}
-
-.resume-container {
-
-}
-
-
-.resume-container p {
-    font-size: 16px;
+    
 }
 
 .main-title {
-    color: blue;
-    padding: 0.4rem;
+    
     text-decoration: none;
-    border: 1px;
-    border-color: blue;
-    border-style: solid;
-    font-family: AntiqueOliveStd-Nord;
-    transform: rotate(-12deg);
+    font-family: SpaceMono-Italic;
+    transform: rotate(-8deg);
     z-index: 100;
-    font-size: 1.8rem;
+    font-size: 2rem;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     margin-top: 40px;
-    margin-left: 10px;
+    margin-left: 20px;
 }
 
-.menu-container {
+
+/* Slideshow projet */
+
+.main-container {
+    display: block;
+}
+
+
+.slideshow {
+    max-width: 70%;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-left: 400px;
+
+}
+
+.slideshow img {
+    max-width: 100%;
+    margin-right: 20px;
+    padding-bottom: 30px;
+
+}
+
+.sketches {
+    max-width: 60%;
+    margin-right: 35px;
+    padding-bottom: 30px;
+    margin-left: 400px;
+
+}
+
+.sketches img {
+    max-width: 100%;
+    margin-right: 35px;
+    padding-bottom: 30px;
+
+}
+
+.description-container {
+    margin-right: 30px;
+    padding-left: 40px;
+    position: fixed;
+    top: 350px;
+    z-index: 200;
     font-size: 2rem;
+    max-width: 375px;
+
 }
 
- img {
-    max-width: 100vw;
+.description-title {
+    
+    font-size: 1.3rem;
+    font-weight: 100;
+    font-family: SpaceMono-Regular;
+    margin: 0;
+}
+
+.description-additional {
+    font-size: 1.3rem;
+    font-weight: 100;
+    margin: 0;
+    font-family: SpaceMono-Regular;
+
+}
+
+.description-text {
+    
+    /* margin-top: 90px; */
+    margin-right: 150px;
+    font-size: 2rem;
+    font-weight: 100;
+    margin-top: 20px;
+}
+
+.hidden {
+    
+    margin-top: 80px;
+    font-size: 2rem;
+    font-weight: 100;
+    visibility: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(0, 0,255);
+
 }
 
 
-@media screen and (max-width: 800px) {
+/* Pêle-mêle homepage */
+
+
+.album {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+
+}
+
+.random_img {
+    position: absolute;
+    width: 20%;
+    height: auto;
+    
+
+}
+
+
+
+
+
+/* projets dans catégories */
+
+
+
+.column {
+    float: right;
+    width: 30%;
+    padding: 40px;
+    
+  }
+  
+
+
+
+  /* Clearfix (clear floats) */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+    margin-left: 300px; 
+  }
+
+
+/* curriculum text */
+
+
+.curriculum-container {
+    
+    margin-left: 350px;
+    margin-top: 60px;
+    position: left;
+    font-size: 1.3rem;
+    
+}
+
+.curriculum-container p {
+    margin: 0.5rem;
+
+}
+
+.p {
+    font-size: 3rem;
+}
+
+.curriculum-title {
+    font-size: 1.4rem;
+    font-family: SpaceMono-Regular;
+}
+
+.dates {
+    font-size: 1rem;
+    font-family: SpaceMono-Regular;
+    padding-top: 1rem;
+    padding-bottom: 0.2rem;
+}
+
+.copyright {
+
+    font-size: 0.7rem;
+    font-family: AppleGaramond-Light;
+    padding-top: 6.5rem;
+    padding-bottom: 0.2rem;
+
+
+}
+
+
+
+
+@media (max-device-width: 800px) {
     html, body {
         font-size: 16px;
         margin: 0;
         padding: 0;
+
+    }
+    
+
+    /* Menu */
+    .menu-container {
+        font-size: 2rem;
+        position: initial;
+    }
+
+    .main-title {
+        font-size: 4rem;
+        position: fixed;
+        background: rgba(255, 255, 255, 0.5);
+    }
+
+
+    img {
+        max-width: 100vw;
+
     }
 }
-
-
 
 
 

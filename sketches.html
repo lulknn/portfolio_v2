@@ -1,88 +1,91 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <meta name="description" content="ceci est mon portfolio"/>
-        <link rel="shortcut icon" type="image/ico" href="img/favicon.gif" />
-        <link rel="stylesheet" type="text/css" href="style.css" />
-        <title> Sketches </title>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="ceci est mon portfolio" />
+    <link rel="shortcut icon" type="image/ico" href="img/favicon.gif" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title> Sketches </title>
 
-        <script src="js/jquery.min.js"></script>
-
-
-    </head>
+    <script src="js/jquery.min.js"></script>
 
 
-    <body>
-
-        <h1 class="main-title"><a href="index.html">lucie kenny</a></h1>
-
-        <div class="main-container">
-
-            <div class="menu-container">
-
-                <ul>
-                    <li><a href="editorialdesign.html">editorial design</a></li>
-                    <li><a href="type.html">type</a></li>
-                    <li><a href="sketches.html">sketches</a></li>
-                    <li><a href="about.html">about</a></li>
-                </ul>
-
-            </div>
-
-            <div class="project-description">
-                <p>A collection of moments experienced around the world during a two-year gap in between my studies. </p>
-            </div> 
+</head>
 
 
-            <div class="slideshow ">
+<body>
 
-                <div class="projects">
 
-                <img  src="media/sketch_6.jpg"
-                     title="Cathedral of Reims"/>
-                <img  src="media/sketch_7.jpg"
-                     title="Hortus botanicus, Amsterdam"/>
-                <img  src="media/gustave_moreau.jpeg"
-                     title=" Gustave Moreau museum, Paris"/>
-                <img  src="media/courville.jpeg"
-                     title="Saint-Julien Church, Courville"/>
-                <img  src="media/uluru.jpg"
-                     title="Uluru, Australia"/>
-                <img  src="media/operahouse.jpg"
-                     title="Sydney Opera House, Australia"/>
+    <div class="main-container">
 
-            </div>     
-</div>
+        <div class="menu-container">
+
+            <h1 class="main-title"><a href="index.html">lucie kenny</a></h1>
+            <ul>
+                <li><a href="Ed_projects/editorialdesign.html">editorial design</a></li>
+                <li><a href="type_projects/type.html">type</a></li>
+                <li><a href="sketches.html">sketches</a></li>
+                <li><a href="about.html">about</a></li>
+            </ul>
+
         </div>
 
-        <script>
+        
 
-            var legende = $( ".legende" );
+    <div class="description-container">
+            <h2 class="description-title">2016-2018</h2>
 
-            $(".slideshow img").hover(function(){
-                var title = jQuery(this).attr( "title" );
-                legende.append(title);
-
-
-
-            },function(){
-                legende.html('');
-            })    
+            <p class="hidden">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex 
+                    ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+                    pariatur.</p>
+        
 
 
-            $(document).mousemove(function (e) {    
 
-                legende.css('left', event.pageX-50);
-                legende.css('top', event.pageY-50);
+        </div>
 
-            });
+        <div class="sketches">
 
 
-        </script>
+            <img src="media/sketch_6.jpg" title="Cathedral of Reims" />
+            <img src="media/courville.jpg" title="Saint-Julien Church, Courville" />
+            <img src="media/gustave_moreau.jpg" title=" Gustave Moreau museum, Paris" />
+            <img src="media/sketch_7.jpg" title="Hortus botanicus, Amsterdam" />
+            <img src="media/illu_anvers1.jpg"/>
+            <img src="media/uluru.jpg" title="Uluru, Australia" />
+            <img src="media/operahouse.jpg" title="Sydney Opera House, Australia" />
 
-    </body>
+        </div>
+    </div>
+
+    <script>
+
+        var legende = $(".title");
+
+        $(".sketches img").hover(function () {
+            var title = jQuery(this).attr("title");
+            legende.append(title);
+
+
+
+        }, function () {
+            legende.html('');
+        })
+
+
+        $(document).mousemove(function (e) {
+
+            legende.css('left', event.pageX - 50);
+            legende.css('top', event.pageY - 50);
+
+        });
+
+
+    </script>
+
+</body>
 
 
 </html>

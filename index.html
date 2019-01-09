@@ -1,84 +1,96 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <meta name="description" content="ceci est mon portfolio"/>
-        <link rel="shortcut icon" type="image/ico" href="img/favicon.gif" />
-        <link rel="stylesheet" type="text/css" href="style.css" />
-        <title> Lucie Kenny </title>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="ceci est mon portfolio" />
+    <link rel="shortcut icon" type="image/ico" href="img/favicon.gif" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title> Lucie Kenny </title>
+</head>
+
+
+<body>
 
 
 
-    </head>
+    <div class="main-container" >
+
+        <div class="menu-container">
+
+            <h1 class="main-title"><a href="index.html">lucie kenny</a></h1>
 
 
-    <body>
-        <div class="main-title"><a href="index.html">lucie kenny</a></div>
-
-        <div class="main-container">
-
-            <div class="menu-container">
-
-                <ul>
-                    <li><a href="editorialdesign.html">editorial design</a></li>
-                    <li><a href="type.html">type</a></li>
-                    <li><a href="sketches.html">sketches</a></li>
-                    <li><a href="about.html">about</a></li>
-                </ul>
-
-            </div>
-
-
-
-            <div id="album" >
-
-                <a href="pds.html" ><img class="random_img"  src="media/pds_final1.jpg" /></a>
-
-                <img class="random_img"  src="media/balade.jpg" />
-
-                <a href="sketches.html" ><img class="random_img"  src="media/illu_anvers1.jpg" /></a>
-
-                <a href="cineclub.html" ><img class="random_img"  src="media/cineclub1.jpg" /></a>
-                <img class="random_img"  src="media/cineclub2.jpg"/>
-                <a href="http://google.com" ><img class="random_img"  src="media/cineclub3.jpg"  /></a>
-                <img class="random_img"  src="media/signpainting_2.jpg" />
-                <img class="random_img"  src="media/rustica1_black.jpg"/>
-
-            </div>    
-
-
+            <ul>
+                <li><a href="Ed_projects/editorialdesign.html">editorial design</a></li>
+                <li><a href="type_projects/type.html">type</a></li>
+                <li><a href="/sketches.html">sketches</a></li>
+                <li><a href="/about.html">about</a></li>
+            </ul>
 
         </div>
 
 
+        <div id="album" class="album">
+
+            <a href="Ed_projects/pds.html"><img class="random_img" src="media/pds_final2.jpg" /></a>
+            <a href="sketches.html"><img class="random_img" src="media/illu_anvers1.jpg" /></a>
+            <a href="/Ed_projects/cineclub.html"><img class="random_img" src="media/cineclub1.jpg" /></a>
+            <a href="/Ed_projects/schnider.html"><img class="random_img" src="media/schnider_3_white.jpg" /></a>
+            <a href="/type_projects/signpainting.html"><img class="random_img" src="media/signpainting_3.jpg" /></a>
+            <a href="/type_projects/calli.html"><img class="random_img" src="media/rustica1_black.jpg" /></a>
+            <a href="type_projects/lineales.html"><img class="random_img" src="media/lineals.jpg"/></a>
+
+        </div>
+
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+     
+     
+    <script>
+         
+    
+        
+    $(document).ready(function() {
+      var bodyWidth = document.getElementById("album").offsetWidth
+      var bodyHeight = document.getElementById("album").offsetHeight
+    
+      $('.random_img').each(function(idx, img) {
+        var randPosX = Math.floor((Math.random() * (bodyWidth-600))+400);
+        var randPosY = Math.floor((Math.random() * (bodyHeight-200)));
+        console.log(randPosY);
+        $(img).css('left', randPosX);
+        $(img).css('top', randPosY);
+    
+      });
+    });
+         
+    </script> 
+
+<!-- <script>
+         
+    
+        
+        $(document).ready(function() {
+          var bodyWidth = document.getElementById("album").offsetWidth
+          var bodyHeight = document.documentElement.clientHeight
+        
+          $('.random_img').each(function(idx, img) {
+            var randPosX = Math.floor((Math.random() * bodyWidth));
+            var randPosY = Math.floor((Math.random() * bodyHeight));
+            console.log(randPosY);
+            $(img).css('left', randPosX);
+            $(img).css('top', randPosY);
+        
+          });
+        });
+             
+        </script>  -->
 
 
 
-        <script src="js/jquery.min.js"></script>
 
+</body>
 
-        <script>
-
-            // cela me permet de …
-
-//            $(document).ready(function() {
-//                var bodyWidth = document.getElementById("album").offsetWidth
-//                var bodyHeight = document.getElementById("album").offsetHeight;
-//
-//                $('.random_img').each(function(idx, img) {
-//                    var randPosX = Math.floor((Math.random() * bodyWidth));
-//                    var randPosY = Math.floor((Math.random() * bodyHeight));
-//                    console.log(randPosY);
-//                    $(img).css('left', randPosX);
-//                    $(img).css('top', randPosY);
-//
-//                });
-//            });
-
-        </script>     
-
-
-
-    </body>
 </html>
