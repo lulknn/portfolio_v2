@@ -265,13 +265,10 @@ a {
     /* Menu */
     .menu-container {
         font-size: 2rem;
-        position: initial;
     }
 
     .main-title {
         font-size: 4rem;
-        position: fixed;
-        background: rgba(255, 255, 255, 0.5);
     }
 
 
