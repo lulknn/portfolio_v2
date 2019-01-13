@@ -41,6 +41,7 @@ body {
     font-size: 2rem;
     position: fixed;
     z-index: 200;
+    top: 0;
 }
 
 .menu-container ul a {
@@ -216,21 +217,18 @@ a {
 
 
 .curriculum-container {
-    
-    margin-left: 350px;
-    margin-top: 60px;
+    margin-left: 390px;
+    margin-top: 70px;
     position: left;
     font-size: 1.3rem;
-    
+}
+
+.curriculum-category {
+    margin-top: 2.7rem;
 }
 
 .curriculum-container p {
-    margin: 0.5rem;
-
-}
-
-.p {
-    font-size: 3rem;
+    margin: 0.5rem 0;
 }
 
 .curriculum-title {
@@ -246,13 +244,10 @@ a {
 }
 
 .copyright {
-
     font-size: 0.7rem;
     font-family: AppleGaramond-Light;
-    padding-top: 6.5rem;
+    padding-top: 7rem;
     padding-bottom: 0.2rem;
-
-
 }
 
 

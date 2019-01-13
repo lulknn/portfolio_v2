@@ -14,7 +14,7 @@
 
 
 
-    <div class="main-container" >
+    <div class="main-container">
 
         <div class="menu-container">
 
@@ -34,62 +34,36 @@
         <div id="album" class="album">
 
             <a href="Ed_projects/pds.html"><img class="random_img" src="media/pds_final2.jpg" /></a>
-            <a href="sketches.html"><img class="random_img" src="media/illu_anvers1.jpg" /></a>
+            <a href="/sketches.html"><img class="random_img" src="media/illu_anvers1.jpg" /></a>
             <a href="/Ed_projects/cineclub.html"><img class="random_img" src="media/cineclub1.jpg" /></a>
-            <a href="/Ed_projects/schnider.html"><img class="random_img" src="media/schnider_3_white.jpg" /></a>
+            <a href="/Ed_projects/schnider.html"><img class="random_img" src="media/schnider_3.jpg" /></a>
             <a href="/type_projects/signpainting.html"><img class="random_img" src="media/signpainting_3.jpg" /></a>
             <a href="/type_projects/calli.html"><img class="random_img" src="media/rustica1_black.jpg" /></a>
-            <a href="type_projects/lineales.html"><img class="random_img" src="media/lineals.jpg"/></a>
+            <a href="type_projects/lineales.html"><img class="random_img" src="media/lineals.jpg" /></a>
+            <a href="type_projects/gravurelapi.html"><img class="random_img" src="media/gravurelapi_4.jpg" /></a>
 
         </div>
 
     </div>
 
     <script src="js/jquery.min.js"></script>
-     
-     
+
+
     <script>
-         
-    
-        
-    $(document).ready(function() {
-      var bodyWidth = document.getElementById("album").offsetWidth
-      var bodyHeight = document.getElementById("album").offsetHeight
-    
-      $('.random_img').each(function(idx, img) {
-        var randPosX = Math.floor((Math.random() * (bodyWidth-600))+400);
-        var randPosY = Math.floor((Math.random() * (bodyHeight-200)));
-        console.log(randPosY);
-        $(img).css('left', randPosX);
-        $(img).css('top', randPosY);
-    
-      });
-    });
-         
-    </script> 
+        $(document).ready(function () {
+            var bodyWidth = document.getElementById("album").offsetWidth
+            var bodyHeight = document.getElementById("album").offsetHeight
 
-<!-- <script>
-         
-    
-        
-        $(document).ready(function() {
-          var bodyWidth = document.getElementById("album").offsetWidth
-          var bodyHeight = document.documentElement.clientHeight
-        
-          $('.random_img').each(function(idx, img) {
-            var randPosX = Math.floor((Math.random() * bodyWidth));
-            var randPosY = Math.floor((Math.random() * bodyHeight));
-            console.log(randPosY);
-            $(img).css('left', randPosX);
-            $(img).css('top', randPosY);
-        
-          });
+            $('.random_img').each(function (idx, img) {
+                var randPosX = Math.floor((Math.random() * (bodyWidth - 600)) + 400);
+                var randPosY = Math.floor((Math.random() * (bodyHeight - 200)));
+                console.log(randPosY);
+                $(img).css('left', randPosX);
+                $(img).css('top', randPosY);
+
+            });
         });
-             
-        </script>  -->
-
-
-
+    </script>
 
 </body>
 
