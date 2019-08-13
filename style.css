@@ -1,11 +1,5 @@
 
-@font-face {
-    font-family: AppleGaramond-Light;
-    src: url(fonts/AppleGaramond-Light.ttf);
-    font-weight:100;
-}    
-
-
+   
 @font-face {
     font-family: SpaceMono-Italic;
     src: url(/fonts/SpaceMono-Italic.ttf);
@@ -19,21 +13,32 @@
 }
 
 @font-face {
-    font-family: Huma-regular;
-    src: url(/fonts/Huma-regular.ttf);
-    font-weight:100;
+    font-family: Claude-display;
+    src: url(/fonts/Claude-display.ttf);
+    font-weight: 100;
 }
 
+@font-face {
+    font-family: Oswald-Heavy;
+    src: url(/fonts/Oswald-Heavy.ttf);
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: Assistant-regular;
+    src: url(/fonts/Assistant-Regular.ttf);
+    font-weight: 100;
+}
 
 
 html {
     font-size: 16px;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
 
 }
 body {
-    color: rgb(0, 20, 131);
-    font-family: SpaceMono-Regular;
+    color: rgb(31, 36, 83);
+    font-family: Huma-regular;
     text-align: left;
     margin: 0;
     /* overflow: hidden; */
@@ -44,28 +49,31 @@ body {
 
 
 .menu-container {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+    font-family: Claude-display;
     position: fixed;
     z-index: 200;
     top: 0;
+    text-transform: lowercase;
+    
+
 }
 
 .menu-container ul a {
     text-decoration: none;
-    color: rgb(0, 20, 131);
+    color:rgb(31, 36, 83);
     cursor: pointer;
 
 }
 
 .menu-container ul a:hover{
     text-decoration: none;
-    font-family: huma-regular;
-    font-size: 1.8rem;
-    color: rgb(201, 183, 162)
+    font-family: Claude-display;
+    font-size: 1.5rem;
+    color: rgb(0, 0, 255);
 
-    
-    
 }
+/* BEIGE : rgb(201, 183, 162) */
 
 .menu-container ul, .menu-container li{
     list-style-type: none;
@@ -74,11 +82,11 @@ body {
 }
 
 .main-title {
-    
+    font-weight: lighter;
     text-decoration: none;
-    font-family: SpaceMono-regular;
+    font-family: Claude-display;
     z-index: 100;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -136,17 +144,18 @@ body {
 
 .description-title {
     
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 100;
-    font-family: SpaceMono-Regular;
+    font-family: Claude-display;
     margin: 0;
 }
 
 .description-additional {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 100;
     margin: 0;
-    font-family: SpaceMono-Regular;
+    padding-top: 0.4rem;
+    font-family: Assistant-Regular;
 
 }
 
@@ -154,10 +163,10 @@ body {
     
     /* margin-top: 90px; */
     margin-right: 150px;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     font-weight: 100;
     margin-top: 20px;
-    font-family: SpaceMono-Regular;
+    font-family: Assistant-Regular;
 }
 
 .hidden {
@@ -170,7 +179,7 @@ body {
 
 a {
     text-decoration: none;
-    color: rgb(0, 20, 131);
+    color:rgb(31, 36, 83);
 
 }
 
@@ -207,7 +216,26 @@ a {
     padding: 40px;
     
   }
+
+  .overlay {
+    font-size: 0.7rem;
+    font-family: Oswald-Heavy;
+    color: #ffffff;
+    text-align: center;
+    padding: 3px;
+    display: none;
+    position: absolute;
+  }
   
+
+
+  section:hover .overlay {
+      display: block;
+      background: rgb(0, 0, 255);
+      text-transform: uppercase;
+  }
+
+
 
 
 
@@ -225,10 +253,10 @@ a {
 
 .curriculum-container {
     margin-left: 420px;
-    margin-top: 70px;
+    margin-top: 120px;
     position: left;
     font-size: 0.8rem;
-    font-family: huma-regular;
+    font-family: Assistant-Regular;
 }
 
 .curriculum-category {
@@ -241,19 +269,19 @@ a {
 
 .curriculum-title {
     font-size: 0.7rem;
-    font-family: SpaceMono-Regular;
+    font-family: Assistant-Regular;
 }
 
 .dates {
     font-size: 0.7rem;
-    font-family: SpaceMono-Regular;
-    padding-top: 0.8rem;
+    font-family: Assistant-Regular;
+    padding-top: 0.6rem;
     padding-bottom: 0rem;
 }
 
 .copyright {
     font-size: 0.5rem;
-    font-family: SpaceMono-Regular;
+    font-family: Assistant-Regular;
     padding-top: 9rem;
     padding-bottom: 0.1rem;
     color: rgb(172, 172, 172);
