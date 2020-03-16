@@ -4,12 +4,6 @@
     font-family: 'Times New Roman', Times, serif;
 }
 
-@font-face {
-    font-family: ClaudeText-Regular;
-    src: url(/fonts/ClaudeText-Regular.otf);
-    font-weight: 100;
-}
-
 body {
     color: rgb(0, 0, 0);
     font-family: IBMPlexMono-Regular;
