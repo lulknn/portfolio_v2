@@ -40,8 +40,9 @@ body {
 .menu-container ul a:hover{
     text-decoration: none;
     font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
     font-size: 1rem;
-    color: rgb(255, 59, 134);
+    color: rgb(0, 0, 0);
 
 }
 /* BEIGE : rgb(201, 183, 162) */
@@ -70,7 +71,7 @@ body {
     text-decoration: none;
     font-family: 'Times New Roman', Times, serif;
     font-size: 1rem;
-    color: rgb(255, 59, 134);
+    color: rgb(0, 0, 0);
 
 }
 
@@ -239,6 +240,8 @@ a {
     font-family: 'Times New Roman', Times, serif;
 }
 
+
+
 .curriculum-category {
     margin-top: 2rem;
 }
@@ -251,6 +254,7 @@ a {
     font-size: 1rem;
     font-family: 'Times New Roman', Times, serif;
 }
+
 
 .dates {
     font-size: 1rem;
