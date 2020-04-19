@@ -53,12 +53,8 @@ body {
     
 }
 
-.main-title {
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-    font-family: 'Times New Roman', Times, serif;
+.main-title {  
     z-index: 100;
-    font-size: 1rem;
     display: inline-flex;
     justify-content: center;
     align-items: center;
