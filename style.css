@@ -1,7 +1,7 @@
 
   
 @font-face {
-    font-family: 'Times New Roman', Times, serif; 
+    font-family: IBMPlexMono; 
 }
 
 body {
@@ -20,7 +20,7 @@ body {
 
 .menu-container {
     font-size: 1rem;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: IBMPlexMono-regular;
     position: fixed;
     z-index: 200;
     top: 0;
@@ -30,7 +30,7 @@ body {
 }
 
 .main-title {  
-    font-family: 'Times New Roman', Times, serif;
+    font-family: IBMPlexMono-regular;
     font-size: 1rem;
     margin-top: 25px;
     margin-left: 40px;
@@ -38,7 +38,7 @@ body {
 
 .main-title ul a:hover{
     
-    font-family: 'Times New Roman', Times, serif;
+    font-family: IBMPlexMono-regular;
     font-style: italic;
     font-size: 1rem;
     color: rgb(0, 0, 0);
@@ -54,7 +54,7 @@ body {
 
 .menu-container ul a:hover{
     text-decoration: none;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: IBMPlexMono-regular;
     font-style: italic;
     font-size: 1rem;
     color: rgb(0, 0, 0);
@@ -128,7 +128,7 @@ body {
     font-weight: 100;
     margin: 0;
     padding-top: 0.4rem;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: IBMPlexMono-regular;
 
 }
 
@@ -139,7 +139,7 @@ body {
     font-size: 1rem;
     font-weight: 100;
     margin-top: 20px;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: IBMPlexMono-regular;
 }
 
 .hidden {
@@ -193,7 +193,7 @@ a {
   .overlay {
     font-size: 1rem;
     margin: 15px;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: IBMPlexMono-regular;
     color: rgb(255, 255, 255);
     background-color: black;
     text-align: center;
@@ -229,7 +229,7 @@ a {
     margin-top: 60px;
     position: left;
     font-size: 1rem;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: IBMPlexMono-regular;
 }
 
 
@@ -244,20 +244,20 @@ a {
 
 .curriculum-title {
     font-size: 1rem;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: IBMPlexMono-regular;
 }
 
 
 .dates {
     font-size: 1rem;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: IBMPlexMono-regular;
     padding-top: 0.6rem;
     padding-bottom: 0rem;
 }
 
 .copyright {
     font-size: 0.4rem;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: IBMPlexMono-regular;
     padding-top: 9rem;
     padding-bottom: 0.1rem;
     color: rgb(172, 172, 172);
