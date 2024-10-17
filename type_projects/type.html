@@ -3,111 +3,46 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="description" content="Type" />
+    <meta name="description" content="miscellaneous" />
     <link rel="shortcut icon" type="image/ico" href="img/favicon.gif" />
     <link rel="stylesheet" type="text/css" href="/style.css" />
     <title> Type </title>
 
-
-
 </head>
 
-
 <body>
-
 
     <div class="main-container">
 
         <div class="menu-container">
-            <h1 class="main-title"><a href="http://lucie.paris">lucie kenny</a></h1>
-
+            <h1 class="main-title"><a href="/index.html">lucie kenny</a></h1>
             <ul>
-                <li><a href="/Ed_projects/editorialdesign.html">editorial design</a></li>
+                <li><a href="/Ed_projects/editorialdesign.html">projects</a></li>
                 <li><a href="/type_projects/type.html">type</a></li>
-                <li><a href="/sketches.html">sketches</a></li>
+                <li><a href="/miscellaneous/miscellaneous.html">miscellaneous</a></li>
                 <li><a href="/about.html">about</a></li>
             </ul>
-
-        </div>
-    </div>
-
-    <div class="row">
-
-        <div class="column">
-            <section>
-                   
-        <a href="/type_projects/claude.html"> <img src="/media/Insta-Claude2.jpg" style="width:100%" /></a>
-    </section>
-    </div>
-
-        <div class="column">
-            <section>
-                   
-        <a href="/type_projects/kobe.html"> <img src="/media/Insta-Kobe.jpg" style="width:100%" /></a>
-    </section>
-    </div>
-
-    <div class="column">
-        <section>
-               
-    <a href="/type_projects/signpainting.html"> <img src="/media/signpainting_cover.jpg" style="width:100%" /></a>
-</section>
-</div>
-
-    <div class="column">
-        <section>
-              
-    <a href="/type_projects/strejk.html"> <img src="/media/Strejk-cover.jpg" style="width:100%" /></a>
-</section>
-</div>
-        <div class="column">
-            <section>
-                  
-        <a href="/type_projects/diplomedsaa.html"> <img src="/media/lettres_cover.jpg" style="width:100%" /></a>
-    </section>
-    </div>
-
-    
-
-    <div class="column">
-        <section>
-              
-    <a href="/type_projects/ouro.html"> <img src="/media/ouro_cover.jpg" style="width:100%" /></a>
-    </section>
-    </div>
-
-    <div class="column">
-        <section>
-              
-    <a href="/type_projects/sancto.html"> <img src="/media/sancto.jpg" style="width:100%" /></a>
-    </section>
-    </div>
-
-
-    <div class="column">
-        <section>
-            
-    <a href="/type_projects/newfont.html"> <img src="/media/untitledfont1.jpg" style="width:100%" /></a>
-    </section>
-    </div>
-
-
-        <div class="column">
-                <section>
-                    
-            <a href="/type_projects/calli.html"><img src="/media/rotunda_cover.jpg" style="width:100%" /></a>
-        </section>
         </div>
 
-        <div class="column">
-            <section>
-                   
-        <a href="/type_projects/gravurelapi.html"> <img src="/media/gravurelapi_cover.jpg" style="width:100%" /></a>
-</section>
-    </div>
-    
+        <div class="description-container">
+            <h2 id="description-title" class="description-title">Font in progress</h2>
+            <h2 id="description-additional" class="description-additional">2024</h2>
+            <p id="description-text" class="description-text">Font in use for a digital art exhibition in Paris.</p>
+        </div>
 
-    
+        <div class="slideshow">
+            <!-- Left and Right clickable areas -->
+            <div class="slideshow-left" id="left-area"></div>
+            <div class="slideshow-right" id="right-area"></div>
+
+            <!-- Placeholder image that will change -->
+            <img id="photo" src="/media/LucieKenny_Poetique.png" alt="Font Image">
+            <!-- Placeholder video that will change, initially hidden -->
+            <video id="video" autoplay loop muted style="display: none;"></video>
+
+            <!-- Project counter -->
+            <div class="project-counter" id="project-counter">1/20</div>
+        </div>
 
     </div>
 
@@ -117,12 +52,109 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'UA-132391745-1');
+    </script>
+
+    <!-- JavaScript for the slideshow, counter, and navigation -->
+    <script>
+        const media = [
+            
+            { type: 'image', src: '/media/LucieKenny_Poetique.png', title: 'Glida', year: '2024', text: 'Font in use for a digital art exhibition in Paris.' },
+            { type: 'image', src: '/media/LucieKenny_Loud_01.jpg', title: 'H&T', year: '2022' },
+            { type: 'video', src: '/media/LucieKenny_Floss_01.mp4', title: 'Motion design', year: '2024' },
+            { type: 'video', src: '/media/LucieKenny_Jubilee_01.mp4', title: 'Motion design', year: '2024' },
+            { type: 'image', src: '/media/LucieKenny_HT_Monogramme.png', title: 'H&T', year: '2024' },
+            { type: 'video', src: '/media/17MARS_VOEUX_2024.mp4', title: 'Happy 17 mars', year: '2024', text: 'Type & motion design for the agency’s digital greeting card, made in collaboration with Théo Scheid.' },
+            { type: 'image', src: '/media/17MARS_LETTRAGE_01.png', title: 'Lettering', year: '2024'},
+            { type: 'image', src: '/media/17MARS_LETTRAGE_02.png', title: 'Lettering', year: '2024'},
+            { type: 'image', src: '/media/17MARS_LETTRAGE_03.png', title: 'Lettering', year: '2024'},
+            { type: 'image', src: '/media/17MARS_LETTRAGE_04.png', title: 'Lettering', year: '2024'},
+            { type: 'image', src: '/media/LucieKenny_Dahlia_Sketch_01.jpg', title: 'Dahlia', year: '2021', text: 'Type design for a family under the artistic direction of Jérémy Schneider & Violaine Orsoni, done at studio Violaine & Jérémy.' },
+            { type: 'image', src: '/media/LucieKenny_Dahlia_Sketch_02.jpg', title: 'Dahlia', year: '2021', text: 'Type design of a family under the artistic direction of Jérémy Schneider & Violaine Orsoni, done at studio Violaine & Jérémy.' },
+            { type: 'image', src: '/media/VJ_DAHLIA_04.jpg', title: 'Dahlia', year: '2021', text: 'Type design of a family under the artistic direction of Jérémy Schneider & Violaine Orsoni, done at studio Violaine & Jérémy.' },
+            { type: 'image', src: '/media/VJ_DAHLIA_05.jpg', title: 'Dahlia', year: '2021', text: 'Type design of a family under the artistic direction of Jérémy Schneider & Violaine Orsoni, done at studio Violaine & Jérémy.' },
+            { type: 'image', src: '/media/VJ_ATHENEE_02.jpg', title: 'Dahlia', year: '2021', text: 'Dahlia in use by studio Violaine & Jérémy for the Théâtre de l’Athénée in Paris.' },
+            { type: 'video', src: '/media/17MARS_RENAULT_DECOMPTE.mp4', title: 'R5', year: '2024', text: 'Type design for Renault’s R5 numbers, displayed during the Geneva International Motor Show. Production: Alison Chavigny / Creative direction: Margaux Botton / Art direction: Théo Scheid / Motion: Eliott Selles' },
+            { type: 'image', src: '/media/17MARS_PREMIERE_SAISON_LOGO_2L.png', title: 'Première Saison', year: '2024', text: 'Custom type for a production company.' },
+            { type: 'video', src: '/media/17MARS_ANIM_PS_COM_01.mp4', title: 'Première Saison', year: '2024', text: 'Custom type for a production company.' },
+            { type: 'image', src: '/media/MalmstenHellberg_BeauTravail_2021.jpg', title: 'Claude', year: '2021', text: 'Claude font in use for the release of Claire Denis’ film Beau Travail in Sweden. Graphic design by Malmsten Hellberg.' },
+            { type: 'image', src: '/media/LucieKenny_Strejk_01.jpg', title: 'Strejk font', year: '2019-2020' }
+        ];
+
+
+        let currentIndex = 0;
+        const totalItems = media.length;
+
+        const photoElement = document.getElementById('photo');
+        const videoElement = document.getElementById('video');
+        const descriptionTitle = document.getElementById('description-title');
+        const descriptionAdditional = document.getElementById('description-additional');
+        const descriptionText = document.getElementById('description-text');
+        const counterElement = document.getElementById('project-counter');
+
+        // Function to update the slideshow and description
+        function updateMedia() {
+            const currentMedia = media[currentIndex];
+
+            // Hide both image and video elements
+            photoElement.style.display = 'none';
+            videoElement.style.display = 'none';
+
+            if (currentMedia.type === 'image') {
+                photoElement.src = currentMedia.src;
+                photoElement.style.display = 'block';
+            } else if (currentMedia.type === 'video') {
+                videoElement.src = currentMedia.src;
+                videoElement.style.display = 'block';
+            }
+
+            // Update description content
+            descriptionTitle.textContent = currentMedia.title;
+            descriptionAdditional.textContent = currentMedia.year;
+            descriptionText.textContent = currentMedia.text || '';
+
+            // Update the counter
+            counterElement.textContent = `${currentIndex + 1}/${totalItems}`;
+        }
+
+        // Function to navigate to the previous media item
+        function previousMedia() {
+            currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+            updateMedia();
+        }
+
+        // Function to navigate to the next media item
+        function nextMedia() {
+            currentIndex = (currentIndex + 1) % totalItems;
+            updateMedia();
+        }
+
+        // Event listeners for navigation
+        document.getElementById('left-area').addEventListener('click', previousMedia);
+        document.getElementById('right-area').addEventListener('click', nextMedia);
+
+        // Event listener for clicking on the image
+        photoElement.addEventListener('click', nextMedia);
+
+        // Event listener for clicking on the video
+        videoElement.addEventListener('click', nextMedia);
+
+        // Function to make the counter follow the mouse exactly on the cursor
+        document.addEventListener('mousemove', (event) => {
+            const x = event.clientX;
+            const y = event.clientY;
+
+            counterElement.style.top = `${y}px`;  // Align to the cursor's Y position
+            counterElement.style.left = `${x}px`; // Align to the cursor's X position
+        });
+
+        // Initialize the first media item
+        updateMedia();
     </script>
 
 
 </body>
 
-
 </html>
+
+

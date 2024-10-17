@@ -8,93 +8,101 @@
     <link rel="stylesheet" type="text/css" href="/style.css" />
     <title>About</title>
 
+    <style>
+        /* Ensure full height for html and body */
+        html {
+            height: 100%;  /* Full height */
+            margin: 0;     /* Remove default margin */
+        }
 
+        /* Linear gradient background for the About page */
+        body {
+            background: linear-gradient(to bottom, #ABABAB, #8591FF);
+            display: flex;  /* Enable flexbox for centering content */
+            align-items: center; /* Center vertically */
+            color: black; /* Set default text color to black */
+        }
 
+        /* Set all link text to black */
+        a {
+            color: black;   /* Ensure link color is black */
+            text-decoration: none; /* Optional: Remove underline */
+        }
+
+        /* Optional: Change link color on hover */
+        a:hover {
+            font-family: Signal-italic; /* Change link color on hover */
+        }
+
+        .copyright {
+            bottom: 20px; /* Set 20px from the bottom */
+            margin-left: 0; /* Reset left margin */
+            margin-right: 0; /* Reset right margin */
+            padding-left: 20px; /* Add padding to align with the left margin of curriculum */
+            margin: 0; /* Remove default margin */
+        }
+
+        /* Main container to fill the remaining space */
+        .main-container {
+            flex: 1;       /* Allow it to grow and fill the space */
+            display: flex;
+            flex-direction: column; /* Stack children vertically */
+        }
+
+        .menu-container a {
+            color: black !important; /* Ensure menu links are black */
+        }
+
+        .menu-container {
+            /* Additional styling for your menu if needed */
+        }
+
+        .description-container {
+            /* Additional styling for your description if needed */
+        }
+
+        
+        .curriculum-container {
+            /* Additional styling for your curriculum if needed */
+        }
+
+        
+    </style>
 </head>
 
-
 <body>
-
     <div class="main-container">
-
         <div class="menu-container">
-            <h1 class="main-title"><a href="index.html">lucie kenny</a></h1>
-
+            <h1 class="main-title"><a href="/index.html">lucie kenny</a></h1>
             <ul>
-                <li><a href="/Ed_projects/editorialdesign.html">editorial design</a></li>
+                <li><a href="/Ed_projects/editorialdesign.html">projects</a></li>
                 <li><a href="/type_projects/type.html">type</a></li>
-                <li><a href="/sketches.html">sketches</a></li>
+                <li><a href="/miscellaneous/miscellaneous.html">miscellaneous</a></li>
                 <li><a href="/about.html">about</a></li>
             </ul>
         </div>
 
-
         <div class="description-container">
-            <h2 class="description-title">+33 6 20 18 43 93</h2>
-            <h2 class="description-additional">luciehkenny@gmail.com</h2>
+            <h2 class="description-additional">+33 6 20 18 43 93 <br>luciehkenny@gmail.com</h2>
         </div>
 
         <div class="curriculum-container">
-            <p>French + American graphic designer, specialized in typography.</p>
-            <p>Currently based in Paris, I also draw a lot of architecture and occasionally write.</p>
-            <div class="curriculum-category">
-                <h2 class="curriculum-title">Education</h2>
-
-                <p class="dates">2018–2020</p>
-                <p>MFA in Type Design</p>
-                <p><a href="http://www.ecole-estienne.paris/">École Estienne</a>, Paris, FR</p>
-
-                <p class="dates">2014–2016</p>
-                <p>Degree in Graphic design</p>
-                <p>specialized in printed media</p>
-                <p>Lycée Eugénie-Cotton, Montreuil, FR</p>
-            </div>
+            <p>Art director & graphic designer based in Paris. I graduated from École Estienne in 2020 with a type design masters. I conceive identities, design letters, and love experimenting with motion design.</p>
 
             <div class="curriculum-category">
-                <h2 class="curriculum-title">Experience</h2>
-
-                <p class="dates">September 2020 – February 2021</p>
-                <p>Graphic and type design intern</p>
-                <p><a href="https://www.violaineetjeremy.fr/">Violaine & Jérémy</a>, Paris, FR</p>
-
-                <p class="dates">March – June 2019</p>
-                <p>Graphic design intern</p>
-                <p><a href="https://www.malmstenhellberg.com/">Malmsten Hellberg</a>, Stockholm, SE</p>
-
-                <p class="dates">January – March 2017</p>
-                <p>Graphic design intern</p>
-                <p>Marketing Eye, Melbourne, AUS</p>
-
-                <p class="dates">April – July 2015</p>
-                <p>Graphic design intern</p>
-                <p>Pylones, Colombes, FR</p>
+                <h2 class="curriculum-title">currently</h2>
+                <p><a href="https://www.17mars.com/">17mars</a>, Paris</p>
+                
             </div>
-
+           
             <div class="curriculum-category">
-                <h2 class="curriculum-title">Published / other</h2>
-
-
-                <p class="dates">March 2020</p>
-                <p><a href="/thesis.html">"de l'inconnu au familier: croisement scriptural latino-hébraïque", masters thesis</a></p>
-                <p><i>[from the unknown to the familiar: latin and hebrew scripturally intertwined]</i></p>
-                <p>École Estienne, Paris</p>
-
-                <p class="dates">February 2020</p>
-                <p><i>Typographic cosmetics</i>, interview of Jost Hochuli done with Laure-Anne Labbé</p>
-                <p>published in Remix, a compilation of written contributions around the Printemps de la Typographie in Paris </p>
-                <p>École Estienne, Paris</p>
-
-                <p class="dates">April 2019</p>
-                <p><i>Down Under</i>, written contribution</p>
-                <p><a href="https://www.stackmagazines.com/product/terrible-people-issue-3//">Terrible People magazine</a></p>
-
-
+                <h2 class="curriculum-title">previous</h2>
+                <p><a href="https://www.violaineetjeremy.fr/">Violaine & Jérémy</a>, Paris</p>
+                <p><a href="https://www.malmstenhellberg.com/">Malmsten Hellberg</a>, Stockholm</p>
             </div>
 
-            <p class="copyright">Website designed by Lucie and Austin Kenny. All work shown here is mine, unless specified otherwise. Pictures taken by Hugo Jourdan and Lucie Kenny. Copyright © Lucie Kenny, all rights reserved.</p>
-            
+            <p class="copyright">Lucie Kenny © 2024</p>
         </div>
-
     </div>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -106,9 +114,6 @@
 
         gtag('config', 'UA-132391745-1');
     </script>
-
-
 </body>
-
 
 </html>
