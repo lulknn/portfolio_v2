@@ -1,10 +1,18 @@
 
-  
-@font-face {
-    font-family: Signal; 
-}
+
+
 
 body {
+
+    @font-face {
+        font-family: 'Fraunces9ptSuperSoft-ThinItalic';
+      }
+
+      @font-face {
+        font-family: 'Optima';
+      }
+
+
     color: rgb(171, 171, 171);
     text-align: left;
     margin: 0;
@@ -20,7 +28,10 @@ body {
 
 .menu-container {
     font-size: 1rem;
-    font-family: Signal-regular;
+    font-family: 'Optima';
+    font-style: normal;
+    font-weight: 500;
+
     position: fixed;
     z-index: 200;
     top: 0;
@@ -30,7 +41,9 @@ body {
 }
 
 .main-title {  
-    font-family: Signal-regular;
+    font-family: 'Optima';
+    font-style: normal;
+    font-weight: 500;    
     font-size: 1rem;
     margin-top: 25px;
     margin-left: 40px;
@@ -38,10 +51,10 @@ body {
 
 .main-title ul a:hover{
     
-    font-family: Signal;
-    font-style: italic;
+    font-family: 'Optima';
+    font-style: normal;
     font-size: 1rem;
-    color: rgb(171, 171, 171);
+    color: rgb(150, 136, 255);
 
 }
 
@@ -54,10 +67,9 @@ body {
 
 .menu-container ul a:hover{
     text-decoration: none;
-    font-family: Signal;
-    font-style: italic;
+    font-family: 'Optima';
     font-size: 1rem;
-    color: rgb(171, 171, 171);
+    color: rgb(255, 128, 128);
 
 }
 /* BEIGE : rgb(201, 183, 162) */
@@ -130,8 +142,10 @@ body {
     position: fixed;
     padding: 20px;
     color: white;
+    font-family: 'Optima';
     font-size: 1rem;
-    font-family: 'Signal', sans-serif; /* Ensure Signal font is used */
+    font-style: normal;
+    font-weight: 500;
     pointer-events: none; /* Prevent mouse interaction with the counter */
     display: none; /* Hidden by default, only shows when cursor is over a clickable area */
 }
@@ -151,18 +165,22 @@ body {
 
 .description-title {
     
+    font-family: 'Optima';
     font-size: 1rem;
-    font-family: Signal-regular;
-    font-weight: 100;
+    font-style: normal;
+    font-weight: 500;
     margin: 0;
 }
 
 .description-additional {
-    font-size: 0.8rem;
-    font-weight: 100;
+    font-size: 1rem;
     margin: 0;
     padding-top: 0.4rem;
-    font-family: Fraunces72ptSuperSoft-Thin;
+    font-family: 'Fraunces9ptSuperSoft-ThinItalic';
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+
 
 }
 
@@ -171,9 +189,10 @@ body {
     /* margin-top: 90px; */
     margin-right: 150px;
     font-size: 1rem;
-    font-weight: 100;
     margin-top: 20px;
-    font-family: Signal-regular;
+    font-family: 'Optima';
+    font-style: normal;
+
 }
 
 .hidden {
@@ -242,11 +261,13 @@ a {
 
 .curriculum-container {
     margin-left: 420px;
-    padding-right: 50px;
+    padding-right: 200px;
     margin-top: 60px;
     position: left;
     font-size: 1rem;
-    font-family: Signal-regular;
+    font-family: 'Optima';
+    font-style: normal;
+
     
 }
 
@@ -262,20 +283,26 @@ a {
 
 .curriculum-title {
     font-size: 0.7rem;
-    font-family: Signal;
+    font-family: 'Fraunces9ptSuperSoft-ThinItalic';
+    font-style: normal;
+    font-weight: 500;
 }
 
 
 .dates {
     font-size: 1rem;
-    font-family: Signal-regular;
+    font-family: 'Fraunces9ptSuperSoft-ThinItalic';
+    font-style: normal;
+    font-weight: 500;
     padding-top: 0.6rem;
     padding-bottom: 0rem;
 }
 
 .copyright {
     font-size: 0.5rem;
-    font-family: Signal-regular;
+    font-family: 'Optima';
+    font-style: normal;
+    font-weight: 500;
     position: absolute; 
     color: rgb(0, 0, 0);
     padding-right: 100px;
