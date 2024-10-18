@@ -1,6 +1,22 @@
 
+/* libre-franklin-500 - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Libre Franklin';
+    font-style: normal;
+    font-weight: 500;
+    src: url('/fonts/libre-franklin-v18-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
 
-
+/* libre-franklin-regular - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Libre Franklin';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/libre-franklin-v18-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  
 
 body {
 
@@ -27,10 +43,10 @@ body {
 
 
 .menu-container {
-    font-size: 1rem;
-    font-family: 'Optima';
+    font-size: 0.9rem;
+    font-family: 'Libre Franklin';
     font-style: normal;
-    font-weight: 500;
+    font-weight: 400;
 
     position: fixed;
     z-index: 200;
@@ -41,20 +57,21 @@ body {
 }
 
 .main-title {  
-    font-family: 'Optima';
+    font-family: 'Libre Franklin';
     font-style: normal;
-    font-weight: 500;    
-    font-size: 1rem;
+    font-weight: 400; 
+    font-size: 0.9rem;
     margin-top: 25px;
     margin-left: 40px;
 }
 
 .main-title ul a:hover{
     
-    font-family: 'Optima';
+    font-family: 'Libre Franklin';
     font-style: normal;
-    font-size: 1rem;
-    color: rgb(150, 136, 255);
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: #9688ff;
 
 }
 
@@ -67,12 +84,14 @@ body {
 
 .menu-container ul a:hover{
     text-decoration: none;
-    font-family: 'Optima';
+    font-family: 'Libre Franklin';
+    font-style: normal;
+    font-weight: 400;
     font-size: 1rem;
-    color: rgb(255, 128, 128);
+    color: #9688ff;
+    text-shadow: 0 0 4px rgb(139, 126, 255);
 
 }
-/* BEIGE : rgb(201, 183, 162) */
 
 .menu-container ul, .menu-container li{
     list-style-type: none;
@@ -142,10 +161,10 @@ body {
     position: fixed;
     padding: 20px;
     color: white;
-    font-family: 'Optima';
-    font-size: 1rem;
+    font-family: 'Libre Franklin';
     font-style: normal;
-    font-weight: 500;
+    font-weight: 400;
+    font-size: 1rem;
     pointer-events: none; /* Prevent mouse interaction with the counter */
     display: none; /* Hidden by default, only shows when cursor is over a clickable area */
 }
@@ -165,20 +184,22 @@ body {
 
 .description-title {
     
-    font-family: 'Optima';
-    font-size: 1rem;
+    font-family: 'Fraunces9ptSuperSoft-ThinItalic';
     font-style: normal;
-    font-weight: 500;
+    font-weight: 400;
+    font-size: 1.3rem;
     margin: 0;
+    letter-spacing: -0.5px;
+
 }
 
 .description-additional {
-    font-size: 1rem;
+    font-size: 0.8rem;
     margin: 0;
     padding-top: 0.4rem;
     font-family: 'Fraunces9ptSuperSoft-ThinItalic';
     font-style: normal;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: -0.5px;
 
 
@@ -188,10 +209,11 @@ body {
     
     /* margin-top: 90px; */
     margin-right: 150px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin-top: 20px;
-    font-family: 'Optima';
+    font-family: 'Libre Franklin';
     font-style: normal;
+    font-weight: 400;
 
 }
 
@@ -265,8 +287,9 @@ a {
     margin-top: 60px;
     position: left;
     font-size: 1rem;
-    font-family: 'Optima';
+    font-family: 'Libre Franklin';
     font-style: normal;
+    font-weight: 400;
 
     
 }
@@ -282,30 +305,26 @@ a {
 }
 
 .curriculum-title {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     font-family: 'Fraunces9ptSuperSoft-ThinItalic';
-    font-style: normal;
     font-weight: 500;
 }
 
 
-.dates {
-    font-size: 1rem;
-    font-family: 'Fraunces9ptSuperSoft-ThinItalic';
-    font-style: normal;
-    font-weight: 500;
-    padding-top: 0.6rem;
-    padding-bottom: 0rem;
-}
+
 
 .copyright {
-    font-size: 0.5rem;
-    font-family: 'Optima';
+    font-size: 0.7rem;
+    font-family: 'Libre Franklin';
     font-style: normal;
     font-weight: 500;
     position: absolute; 
     color: rgb(0, 0, 0);
-    padding-right: 100px;
+    bottom: 20px; /* Set 20px from the bottom */
+    margin-left: 0; /* Reset left margin */
+    margin-right: 0; /* Reset right margin */
+    padding-left: 20px; /* Add padding to align with the left margin of curriculum */
+    margin: 0;
 }
 
 
@@ -320,11 +339,11 @@ a {
 
     /* Menu */
     .menu-container {
-        font-size: 1rem;
+        font-size: 0.7rem;
     }
 
     .main-title {
-        font-size: 1rem;
+        font-size: 0.7rem;
     }
 
 
