@@ -49,7 +49,7 @@
 
         <div class="description-container">
             <h2 id="description-title" class="description-title">Rotunda</h2>
-            <h2 id="description-additional" class="description-additional">2019</h2>
+            <h2 id="description-year" class="description-year">2019</h2>
             <p id="description-text" class="description-text"></p>
         </div>
 
@@ -80,9 +80,7 @@
             { type: 'image', src: '/media/LucieKenny_CovidTee_02.jpg', title: 'Type Gang Covid Tee', year: '2020' },
             { type: 'video', src: '/media/LucieKenny_AnimatedPattern_01.mp4', title: 'Motion design', year: '2024' },
             { type: 'video', src: '/media/LucieKenny_Klimt_01.mp4', title: 'Klimt asleep', year: '2024' },
-            { type: 'image', src: '/media/LucieKenny_GG_sticker_01.png', title: 'Grindin’Grans sticker', year: '2023' },
-            { type: 'image', src: '/media/LucieKenny_GG_sticker_02.png', title: 'Grindin’Grans sticker', year: '2023' },
-            { type: 'image', src: '/media/MalmstenHellberg_BeauTravail_2021.jpg', title: 'Claude', year: '2021', text: 'Claude font in use for the release of Claire Denis’ film Beau Travail in Sweden. Graphic design by Malmsten Hellberg.' },
+            { type: 'image', src: '/media/MalmstenHellberg_BeauTravail_2021.jpg', title: 'Claude', year: '2021', text: 'Claude in use for the release of Claire Denis’ film Beau Travail in Sweden. Graphic design by Malmsten Hellberg.' },
             { type: 'image', src: '/media/LucieKenny_Ouroboros_01.jpg', title: 'Stone carving', year: '2019', text: 'A one-week stone carving workshop at the Academy of the Arts in Vilnius, Lithuania.' },
             { type: 'image', src: '/media/LucieKenny_Ouroboros_02.jpg', title: 'Stone carving', year: '2019', text: 'A one-week stone carving workshop at the Academy of the Arts in Vilnius, Lithuania.' },
             { type: 'image', src: '/media/LucieKenny_Ouroboros_03.jpg', title: 'Stone carving', year: '2019', text: 'A one-week stone carving workshop at the Academy of the Arts in Vilnius, Lithuania.' },
@@ -100,7 +98,7 @@
         const photoElement = document.getElementById('photo');
         const videoElement = document.getElementById('video');
         const descriptionTitle = document.getElementById('description-title');
-        const descriptionAdditional = document.getElementById('description-additional');
+        const descriptionYear = document.getElementById('description-year');
         const descriptionText = document.getElementById('description-text');
 
         // Function to update media
@@ -123,7 +121,7 @@
 
             // Update description content
             descriptionTitle.textContent = currentMedia.title;
-            descriptionAdditional.textContent = currentMedia.year;
+            descriptionYear.textContent = currentMedia.year;
             descriptionText.textContent = currentMedia.text;
         }
 
