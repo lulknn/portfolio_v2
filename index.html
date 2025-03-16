@@ -60,28 +60,92 @@
         $(document).ready(function () {
             var bodyWidth = $("#album").width();
             var bodyHeight = $(window).height();
-    
-            // Decrease the range for random positioning to bring images closer together
-            var minDistance = 10;  // Minimum distance between images
-            var maxDistance = 20;  // Maximum distance between images
-    
-            $('.random_img').each(function (idx, img) {
-                var imgWidth = $(img).width();
-                var imgHeight = $(img).height();
-    
-                // Random positions within the given bounds
-                var randPosX = Math.floor(Math.random() * (bodyWidth - imgWidth - 60)) + 20;
-                var randPosY = Math.floor(Math.random() * (bodyHeight - imgHeight - 20));
-    
-                // Ensure the image doesn't go below the visible area
-                randPosY = Math.min(randPosY, bodyHeight - imgHeight - 20);
-    
-                $(img).css({
-                    left: randPosX,
-                    top: randPosY
-                });
+            var images = $('.random_img');
+            var positions = [];
+            
+            // Position first image near the menu (top-left area)
+            var firstImg = $(images[0]);
+            var menuOffset = 250; // Distance from the left to account for menu
+            var startX = menuOffset + Math.random() * 80; // Reduced random range
+            var startY = 100 + Math.random() * 80; // Reduced random range
+            
+            positions.push({
+                x: startX,
+                y: startY
             });
-    
+            
+            firstImg.css({
+                left: startX,
+                top: startY
+            });
+            
+            // Position other images relative to previous ones
+            for (var i = 1; i < images.length; i++) {
+                var img = $(images[i]);
+                var imgWidth = img.width();
+                var imgHeight = img.height();
+                var placed = false;
+                var attempts = 0;
+                
+                // Try to find a valid position close to an existing image
+                while (!placed && attempts < 100) {
+                    attempts++;
+                    // Pick a random previous image to connect to
+                    var connectTo = positions[Math.floor(Math.random() * positions.length)];
+                    var angle = Math.random() * 2 * Math.PI;
+                    var distance = Math.random() * 50 + 30; // Reduced distance between 30-80px
+                    
+                    var newX = connectTo.x + Math.cos(angle) * distance;
+                    var newY = connectTo.y + Math.sin(angle) * distance;
+                    
+                    // Ensure the image stays fully within bounds with padding
+                    var padding = 20;
+                    newX = Math.max(menuOffset, Math.min(newX, bodyWidth - imgWidth - padding));
+                    newY = Math.max(padding, Math.min(newY, bodyHeight - imgHeight - padding));
+                    
+                    // Check if this position overlaps with any existing images
+                    var overlaps = false;
+                    for (var j = 0; j < positions.length; j++) {
+                        var pos = positions[j];
+                        var dx = newX - pos.x;
+                        var dy = newY - pos.y;
+                        var distance = Math.sqrt(dx * dx + dy * dy);
+                        if (distance < 60) { // Reduced minimum distance between images
+                            overlaps = true;
+                            break;
+                        }
+                    }
+                    
+                    if (!overlaps) {
+                        positions.push({
+                            x: newX,
+                            y: newY
+                        });
+                        img.css({
+                            left: newX,
+                            top: newY
+                        });
+                        placed = true;
+                    }
+                }
+                
+                // If we couldn't find a good spot after many attempts, place it near the closest valid position
+                if (!placed) {
+                    var lastPos = positions[positions.length - 1];
+                    var safeX = Math.max(menuOffset, Math.min(lastPos.x + 60, bodyWidth - imgWidth - padding));
+                    var safeY = Math.max(padding, Math.min(lastPos.y + 60, bodyHeight - imgHeight - padding));
+                    
+                    positions.push({
+                        x: safeX,
+                        y: safeY
+                    });
+                    img.css({
+                        left: safeX,
+                        top: safeY
+                    });
+                }
+            }
+
             $(".random_img").hover(
                 function () {
                     var $this = $(this);
@@ -96,7 +160,7 @@
                         var distance = Math.sqrt(Math.pow(hoverX - imgX, 2) + Math.pow(hoverY - imgY, 2));
     
                         if (distance < 200) {
-                            var offsetX = (imgX - hoverX) / distance * 10; // Larger movement
+                            var offsetX = (imgX - hoverX) / distance * 10;
                             var offsetY = (imgY - hoverY) / distance * 10;
                             $img.css("transform", `translate(${offsetX}px, ${offsetY}px)`);
                         }
