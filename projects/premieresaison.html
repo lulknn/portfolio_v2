@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="premiere saison" />
+    <link rel="shortcut icon" type="image/ico" href="img/favicon.gif" />
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <title> Première Saison </title>
+
+
+
+</head>
+
+
+<body>
+
+    <div class="main-container">
+
+        <div class="menu-container">
+            <h1 class="main-title"><a href="/index.html">lucie kenny</a></h1>
+
+            <ul>
+                <li><a href="/projects/projects.html">projects</a></li>
+                <li><a href="/type_projects/type.html">type</a></li>
+                <li><a href="/miscellaneous/miscellaneous.html">miscellaneous</a></li>
+                <li><a href="/about.html">about</a></li>
+            </ul>
+
+        </div>
+        <div class="description-container">
+            <h2 class="description-title">Première Saison</h2>
+            <h2 class="description-year">2024</h2>
+
+
+            <p class="description-text"> 
+                Identity for Première Saison, a production company aiming at telling stories through different commitments and projects.
+            </p>
+            
+            <div class="hover-area"></div>
+
+            <h2 class="description-additional">
+                Art direction: Lucie Kenny <br>Production: Alison Chavigny<br>Logo design & motion design: Lucie Kenny<br><br><a href="https://17mars.com/en/home/">Made at 17mars</a></h2>
+
+
+        </div>
+
+
+        <div class="slideshow">
+            <img src="/media/17MARS_PREMIERE_SAISON_LOGO_2L.png" />
+            <video autoplay muted loop source src="/media/17MARS_ANIM_PS_COM_01.mp4" type="video/mp4"></video>
+            <img src="/media/17MARS_PS_LOGO_MARQUAGE_01.jpg" />
+            <video autoplay muted loop source src="/media/17MARS_PS_BOUCLE.mp4" type="video/mp4"></video>
+            <img src="/media/17MARS_PS_TOTE_02.jpg" />
+
+        </div>
+
+    </div>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132391745-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-132391745-1');
+    </script>
+
+<script>
+    document.querySelector(".hover-area").addEventListener("click", function() {
+        document.querySelector(".description-additional").classList.toggle("hidden");
+    });
+</script>
+
+</body>
+
+
+</html>

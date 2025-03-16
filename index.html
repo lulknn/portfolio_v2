@@ -21,7 +21,7 @@
 
 
             <ul>
-                <li><a href="/Ed_projects/editorialdesign.html">projects</a></li>
+                <li><a href="/projects/projects.html">projects</a></li>
                 <li><a href="/type_projects/type.html">type</a></li>
                 <li><a href="/miscellaneous/miscellaneous.html">miscellaneous</a></li>
                 <li><a href="/about.html">about</a></li>
@@ -32,19 +32,18 @@
 
         <div id="album" class="album">
 
-            <a href="/Ed_projects/mce.html"><img class="random_img" src="/media/MEDIACLUBELLES_LOGO_RVB_Blanc.png"/></a>
-            <a href="Ed_projects/coinshares.html"><img class="random_img" src="/media/17MARS_COINSHARES_MANIFESTO_6.jpg"/></a>
-            <a href="Ed_projects/premieresaison.html"><img class="random_img" src="/media/17MARS_PS_LOGO_MARQUAGE_01.jpg"/></a>
-            <a href="Ed_projects/hangover.html"><img class="random_img" src="/media/IMG_9304-NB.jpg"/></a>
-            <a href="/miscellaneous/miscellaneous.html"><img class="random_img" src="/media/LucieKenny_SemiOnciale_02.jpg"/></a>
-            <a href="/Ed_projects/coinshares.html"><img class="random_img" src="/media/17MARS_COINSHARES_MANIFESTO_7.jpg"/></a>
-            <a href="/Ed_projects/tadamm.html"><img class="random_img" src="/media/17MARS_TADAMM_MOCKUP_FLAGS.jpg"/></a>
-            <a href="/Ed_projects/portrait.html"><img class="random_img" src="/media/17MARS_1703_POSTER.jpg"/></a>
-            <a href="/Ed_projects/mbm.html"><img class="random_img" src="/media/17MARS_MBM_11.jpg"/></a>
-            <a href="/Ed_projects/ngd.html"><img class="random_img" src="/media/17MARS_WINTER_NGD_09.jpg"/></a>
-            <a href="/Ed_projects/ndg.html"><img class="random_img" src="/media/17MARS_WLYN_NDG_3.png"/></a>
-            <a href="/type_projects/type.html"><img class="random_img" src="/media/LucieKenny_GG_sticker_02.png"/></a>
-            <a href="/type_projects/type.html"><img class="random_img" src="/media/LucieKenny_CovidTee_02.jpg"/></a>
+            <a href="/projects/mce.html"><img class="random_img" src="/media/sancto3.jpg"/></a>
+            <a href="projects/coinshares.html"><img class="random_img" src="/media/17MARS_COINSHARES_MANIFESTO_6.jpg"/></a>
+            <a href="projects/premieresaison.html"><img class="random_img" src="/media/17MARS_PS_LOGO_MARQUAGE_01.jpg"/></a>
+            <a href="projects/hangover.html"><img class="random_img" src="/media/IMG_9304-NB.jpg"/></a>
+            <a href="/projects/dahlia.html"><img class="random_img" src="/media/Dahlia_VJType_specimen_04.jpg"/></a>
+            <a href="/projects/dahlia.html"><img class="random_img" src="/media/Dahlia_VJType_specimen_03.jpg"/></a>
+            <a href="/projects/dahlia.html"><img class="random_img" src="/media/Dahlia_VJType_specimen_05.jpg"/></a>
+            <a href="/projects/tadamm.html"><img class="random_img" src="/media/17MARS_TADAMM_MOCKUP_FLAGS.jpg"/></a>
+            <a href="/projects/tadamm.html"><img class="random_img" src="/media/17MARS_KIR_12.jpg"/></a>
+            <a href="/projects/mbm.html"><img class="random_img" src="/media/17MARS_MBM_11.jpg"/></a>
+            <a href="/projects/ngd.html"><img class="random_img" src="/media/17MARS_WINTER_NGD_09.jpg"/></a>
+            <a href="/projects/ndg.html"><img class="random_img" src="/media/17MARS_WLYN_NDG_7.png"/></a>
             <a href="/miscellaneous/miscellaneous.html"><img class="random_img" src="/media/LucieKenny_Ouroboros_03.jpg"/></a>
 
 
@@ -56,31 +55,60 @@
 
     <script src="js/jquery.min.js"></script>
 
-
+    
     <script>
         $(document).ready(function () {
-            var bodyWidth = document.getElementById("album").offsetWidth
-            var bodyHeight = document.getElementById("album").offsetHeight
-
+            var bodyWidth = $("#album").width();
+            var bodyHeight = $(window).height();
+    
+            // Decrease the range for random positioning to bring images closer together
+            var minDistance = 10;  // Minimum distance between images
+            var maxDistance = 20;  // Maximum distance between images
+    
             $('.random_img').each(function (idx, img) {
-                var randPosX = Math.floor((Math.random() * (bodyWidth - 600)) + 400);
-                var randPosY = Math.floor((Math.random() * (bodyHeight - 200)));
-                console.log(randPosY);
-                $(img).css('left', randPosX);
-                $(img).css('top', randPosY);
-
+                var imgWidth = $(img).width();
+                var imgHeight = $(img).height();
+    
+                // Random positions within the given bounds
+                var randPosX = Math.floor(Math.random() * (bodyWidth - imgWidth - 60)) + 20;
+                var randPosY = Math.floor(Math.random() * (bodyHeight - imgHeight - 20));
+    
+                // Ensure the image doesn't go below the visible area
+                randPosY = Math.min(randPosY, bodyHeight - imgHeight - 20);
+    
+                $(img).css({
+                    left: randPosX,
+                    top: randPosY
+                });
             });
+    
+            $(".random_img").hover(
+                function () {
+                    var $this = $(this);
+                    var hoverX = $this.position().left + $this.width() / 2;
+                    var hoverY = $this.position().top + $this.height() / 2;
+    
+                    $(".random_img").not($this).each(function () {
+                        var $img = $(this);
+                        var imgX = $img.position().left + $img.width() / 2;
+                        var imgY = $img.position().top + $img.height() / 2;
+    
+                        var distance = Math.sqrt(Math.pow(hoverX - imgX, 2) + Math.pow(hoverY - imgY, 2));
+    
+                        if (distance < 200) {
+                            var offsetX = (imgX - hoverX) / distance * 10; // Larger movement
+                            var offsetY = (imgY - hoverY) / distance * 10;
+                            $img.css("transform", `translate(${offsetX}px, ${offsetY}px)`);
+                        }
+                    });
+    
+                    $(".random_img").not($this).addClass("blurred");
+                },
+                function () {
+                    $(".random_img").removeClass("blurred").css("transform", "translate(0, 0)");
+                }
+            );
         });
-    </script>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132391745-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-132391745-1');
     </script>
 
 </body>
