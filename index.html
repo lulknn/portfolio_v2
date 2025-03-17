@@ -7,6 +7,57 @@
     <link rel="shortcut icon" type="image/ico" href="img/favicon.gif" />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <title> Lucie Kenny </title>
+    <style>
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            width: 100%;
+        }
+
+        .project-item {
+            position: relative;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .project-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        #fullscreen-media {
+            position: fixed;
+            top: 0;
+            left: 340px;
+            width: calc(100vw - 340px);
+            height: 100vh;
+            object-fit: cover;
+            margin: 0;
+            z-index: 1;
+            display: none;
+            cursor: pointer;
+            background-color: black;
+        }
+
+        #fullscreen-media.active {
+            display: block;
+        }
+
+        .menu-container {
+            z-index: 2;
+        }
+
+        .description-container {
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .description-title, .description-year, .description-text {
+            pointer-events: auto;
+        }
+    </style>
 </head>
 
 
@@ -65,9 +116,9 @@
             
             // Position first image near the menu (top-left area)
             var firstImg = $(images[0]);
-            var menuOffset = 250; // Distance from the left to account for menu
-            var startX = menuOffset + Math.random() * 80; // Reduced random range
-            var startY = 100 + Math.random() * 80; // Reduced random range
+            var menuOffset = 250;
+            var startX = menuOffset + Math.random() * 80;
+            var startY = 100 + Math.random() * 80;
             
             positions.push({
                 x: startX,
@@ -87,30 +138,26 @@
                 var placed = false;
                 var attempts = 0;
                 
-                // Try to find a valid position close to an existing image
                 while (!placed && attempts < 100) {
                     attempts++;
-                    // Pick a random previous image to connect to
                     var connectTo = positions[Math.floor(Math.random() * positions.length)];
                     var angle = Math.random() * 2 * Math.PI;
-                    var distance = Math.random() * 50 + 30; // Reduced distance between 30-80px
+                    var distance = Math.random() * 50 + 30;
                     
                     var newX = connectTo.x + Math.cos(angle) * distance;
                     var newY = connectTo.y + Math.sin(angle) * distance;
                     
-                    // Ensure the image stays fully within bounds with padding
                     var padding = 20;
                     newX = Math.max(menuOffset, Math.min(newX, bodyWidth - imgWidth - padding));
                     newY = Math.max(padding, Math.min(newY, bodyHeight - imgHeight - padding));
                     
-                    // Check if this position overlaps with any existing images
                     var overlaps = false;
                     for (var j = 0; j < positions.length; j++) {
                         var pos = positions[j];
                         var dx = newX - pos.x;
                         var dy = newY - pos.y;
                         var distance = Math.sqrt(dx * dx + dy * dy);
-                        if (distance < 60) { // Reduced minimum distance between images
+                        if (distance < 60) {
                             overlaps = true;
                             break;
                         }
@@ -129,7 +176,6 @@
                     }
                 }
                 
-                // If we couldn't find a good spot after many attempts, place it near the closest valid position
                 if (!placed) {
                     var lastPos = positions[positions.length - 1];
                     var safeX = Math.max(menuOffset, Math.min(lastPos.x + 60, bodyWidth - imgWidth - padding));
@@ -146,6 +192,32 @@
                 }
             }
 
+            // Add click handlers for fullscreen image viewing
+            $('.random_img').click(function(e) {
+                e.preventDefault(); // Prevent default link behavior
+                var imgSrc = $(this).attr('src');
+                var parentLink = $(this).parent('a').attr('href');
+                
+                // Create or get the fullscreen image element
+                var fullscreenImg = $('#photo');
+                if (fullscreenImg.length === 0) {
+                    fullscreenImg = $('<img id="photo" />').appendTo('body');
+                }
+                
+                // Set up the fullscreen image
+                fullscreenImg.attr('src', imgSrc)
+                    .addClass('active')
+                    .one('click', function() {
+                        // On click of fullscreen image
+                        if (parentLink) {
+                            window.location.href = parentLink; // Navigate to the link
+                        } else {
+                            $(this).removeClass('active'); // Just hide the image
+                        }
+                    });
+            });
+
+            // Handle hover effects
             $(".random_img").hover(
                 function () {
                     var $this = $(this);
@@ -172,6 +244,13 @@
                     $(".random_img").removeClass("blurred").css("transform", "translate(0, 0)");
                 }
             );
+
+            // Close fullscreen image when pressing Escape
+            $(document).keydown(function(e) {
+                if (e.key === "Escape") {
+                    $('#photo').removeClass('active');
+                }
+            });
         });
     </script>
 
