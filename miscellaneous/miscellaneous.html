@@ -8,64 +8,20 @@
     <link rel="stylesheet" type="text/css" href="/style.css" />
     <title> Miscellaneous </title>
 
-    <style>
-        .slideshow {
-            position: relative;
-            z-index: 1;
-        }
-
-        .slideshow img, .slideshow video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            cursor: pointer;
-        }
-
-        #fullscreen-media {
-            position: fixed;
-            top: 0;
-            left: 340px;
-            width: calc(100vw - 340px);
-            height: 100vh;
-            object-fit: cover;
-            margin: 0;
-            z-index: 1;
-            display: none;
-            cursor: pointer;
-            background-color: black;
-        }
-
-        #fullscreen-media.active {
-            display: block;
-        }
-
-        .menu-container {
-            z-index: 2;
-            position: relative;
-        }
-
-        .description-container {
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        .description-title, .description-year, .description-text {
-            pointer-events: auto;
-        }
-    </style>
 </head>
 
 <body>
     <div class="main-container">
-        <div class="menu-container">
-            <h1 class="main-title"><a href="/index.html">lucie kenny</a></h1>
 
-            <ul>
+        <div class="menu-container">
+            <ul><li><a href="/index.html">lucie kenny</a></li>
+                <br>
                 <li><a href="/projects/projects.html">projects</a></li>
                 <li><a href="/type_projects/type.html">type</a></li>
                 <li><a href="/miscellaneous/miscellaneous.html">miscellaneous</a></li>
                 <li><a href="/about.html">about</a></li>
             </ul>
+
         </div>
 
         <div class="description-container">
@@ -74,11 +30,6 @@
             <p id="description-text" class="description-text"></p>
         </div>
 
-        <div class="slideshow">
-            <img id="photo" src="/media/LucieKenny_Rotunda_01.jpg" alt="Current Image">
-            <video id="video" autoplay loop muted style="display: none;"></video>
-        </div>
-    </div>
 
     <!-- Fullscreen media container -->
     <img id="fullscreen-media" src="" alt="Fullscreen view">
@@ -93,96 +44,63 @@
     </script>
 
     <script src="/js/jquery.min.js"></script>
+    <div class="fullscreen-container" id="fullscreen-container">
+        <img id="mediaElement" class="fullscreen-media" />
+        <video id="videoElement" class="fullscreen-media" autoplay loop muted></video>
+        <div class="description">
+            <h2 id="description-title"></h2>
+            <p id="description-year"></p>
+            <p id="description-text"></p>
+        </div>
+    </div>
+    
     <script>
         const media = [
             { type: 'image', src: '/media/LucieKenny_Rotunda_01.jpg', title: 'Rotunda', year: '2019' },
             { type: 'image', src: '/media/LucieKenny_CovidTee_01.jpg', title: 'Type Gang Covid Tee', year: '2020' },
-            { type: 'image', src: '/media/LucieKenny_CovidTee_02.jpg', title: 'Type Gang Covid Tee', year: '2020' },
             { type: 'video', src: '/media/LucieKenny_AnimatedPattern_01.mp4', title: 'Motion design', year: '2024' },
-            { type: 'video', src: '/media/LucieKenny_Klimt_01.mp4', title: 'Klimt asleep', year: '2024' },
-            { type: 'image', src: '/media/MalmstenHellberg_BeauTravail_2021.jpg', title: 'Claude', year: '2021', text: 'Claude in use for the release of Claire Denis\' film Beau Travail in Sweden. Graphic design by Malmsten Hellberg.' },
-            { type: 'image', src: '/media/LucieKenny_Ouroboros_01.jpg', title: 'Stone carving', year: '2019', text: 'A one-week stone carving workshop at the Academy of the Arts in Vilnius, Lithuania.' },
-            { type: 'image', src: '/media/LucieKenny_Ouroboros_02.jpg', title: 'Stone carving', year: '2019', text: 'A one-week stone carving workshop at the Academy of the Arts in Vilnius, Lithuania.' },
-            { type: 'image', src: '/media/LucieKenny_Ouroboros_03.jpg', title: 'Stone carving', year: '2019', text: 'A one-week stone carving workshop at the Academy of the Arts in Vilnius, Lithuania.' },
             { type: 'image', src: '/media/LucieKenny_Hebrew.jpg', title: 'Hebrew calligraphy', year: '2020' },
-            { type: 'image', src: '/media/LucieKenny_Volcan_01.jpg', title: 'Le Volcan', year: '2018', text: 'Booklet design for Le Havre\'s theater.' },
-            { type: 'image', src: '/media/LucieKenny_Volcan_02.jpg', title: 'Le Volcan', year: '2018', text: 'Booklet design for Le Havre\'s theater.' },
-            { type: 'image', src: '/media/LucieKenny_SemiOnciale_02.jpg', title: 'Semi uncial', year: '2016' },
-            { type: 'image', src: '/media/LucieKenny_Diploma_01.jpg', title: 'Type design masters project', year: '2020', text: 'Communication for a literary festival in Paris.' },
-            { type: 'image', src: '/media/LucieKenny_Diploma_02.jpg', title: 'Type design masters project', year: '2020', text: 'Communication for a literary festival in Paris.' },
-            { type: 'image', src: '/media/LucieKenny_Gravure_01.jpg', title: 'Stone carving', year: '2018', text: 'A one-week stone carving workshop at the Maison de la Poésie in Normandy.' }
+            { type: 'image', src: '/media/LucieKenny_BeauTravail_Mockup.jpg', title: 'Beau Travail', year: '2021', text: 'My font Claude, in use by Malmsten Hellberg for the swedish release of Beau Travail.' }
         ];
-
+    
         let currentIndex = 0;
-        const photoElement = document.getElementById('photo');
-        const videoElement = document.getElementById('video');
-        const fullscreenMedia = document.getElementById('fullscreen-media');
+        const mediaElement = document.getElementById('mediaElement');
+        const videoElement = document.getElementById('videoElement');
         const descriptionTitle = document.getElementById('description-title');
         const descriptionYear = document.getElementById('description-year');
         const descriptionText = document.getElementById('description-text');
-
+    
         function updateMedia() {
             const currentMedia = media[currentIndex];
-
-            photoElement.style.display = 'none';
-            videoElement.style.display = 'none';
-
+    
             if (currentMedia.type === 'image') {
-                photoElement.src = currentMedia.src;
-                photoElement.style.display = 'block';
+                mediaElement.src = currentMedia.src;
+                mediaElement.style.display = 'block';
+                videoElement.style.display = 'none';
             } else if (currentMedia.type === 'video') {
                 videoElement.src = currentMedia.src;
                 videoElement.style.display = 'block';
+                mediaElement.style.display = 'none';
             }
-
+    
             descriptionTitle.textContent = currentMedia.title;
             descriptionYear.textContent = currentMedia.year;
             descriptionText.textContent = currentMedia.text || '';
         }
-
-        function showFullscreen(src) {
-            fullscreenMedia.src = src;
-            fullscreenMedia.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function hideFullscreen() {
-            fullscreenMedia.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
+    
         function nextMedia() {
             currentIndex = (currentIndex + 1) % media.length;
             updateMedia();
-            if (fullscreenMedia.classList.contains('active')) {
-                showFullscreen(media[currentIndex].type === 'image' ? media[currentIndex].src : '');
-            }
         }
-
-        photoElement.addEventListener('click', (e) => {
-            e.preventDefault();
-            showFullscreen(photoElement.src);
-        });
-
-        fullscreenMedia.addEventListener('click', () => {
-            nextMedia();
-        });
-
+    
+        document.getElementById('fullscreen-container').addEventListener('click', nextMedia);
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                hideFullscreen();
-            } else if (e.key === 'ArrowRight' || e.key === ' ') {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
                 nextMedia();
             }
         });
-
-        // Handle video clicks separately
-        videoElement.addEventListener('click', () => {
-            nextMedia();
-        });
-
-        // Initialize the first image
-        updateMedia();
+    
+        updateMedia(); // Initialize first image
     </script>
 </body>
 </html>
