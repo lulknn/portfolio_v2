@@ -71,7 +71,7 @@ body {
 .menu-container {
     position: fixed;
     left: 0px;
-    padding-top: 40px;
+    padding-top: 30px;
     height: 100vh;
     box-sizing: border-box;
     font-size: 0.9rem;
@@ -381,7 +381,6 @@ a {
     padding-right: 40px;
     box-sizing: border-box;
     width: calc(100% - 340px);
-    margin-top: 60px;
     position: left;
     font-size: 0.9rem;
     font-family: 'Libre Franklin';
@@ -446,14 +445,6 @@ a {
 
 /* Media Query for mobile screens (below 768px) */
 @media (max-width: 768px) {
-    .menu-container {
-        font-size: 0.8rem; /* Fixed width */
-        position: fixed; /* Keep menu fixed */
-        top: 0;
-        left: -20px; /* Consistent left margin */
-        z-index: 100;
-    }
-
     .description-container {
         font-size: 0.8rem; /* Fixed width */
         margin-top: -40px;
@@ -479,7 +470,6 @@ a {
     .menu-container {
         position: fixed; /* Keep menu fixed */
         top: 0;
-        left: 20px; /* Consistent left margin */
         z-index: 100;
     }
 
