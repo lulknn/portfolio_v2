@@ -168,6 +168,50 @@ body {
     opacity: 1;
   }
 
+  /* FULLSCREEN IMAGE/VIDEO STYLES */
+
+.fullscreen-container {
+    position: fixed;
+    size: cover;
+    display: flex;
+    background: black;
+    overflow: hidden;
+}
+
+
+
+#fullscreen-media {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover; /* Ensures full coverage without stretching */
+    transform: translate(-50%, -50%); /* Centers the media */
+}
+
+#fullscreen-media.active {
+    display: block;
+    object-fit: cover;
+
+}
+
+
+
+/* Ensure the album container doesn't interfere with fullscreen view */
+.album {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.random_img {
+    position: absolute;
+    width: 20%;
+    height: auto;
+    transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
+    cursor: pointer;
+}
 
 /* SLIDESHOW IMAGES DANS PROJET */
 
@@ -473,81 +517,3 @@ a {
     }
 }
 
-/* FULLSCREEN IMAGE/VIDEO STYLES */
-
-.fullscreen-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: black;
-    overflow: hidden;
-}
-
-#photo {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 95vw;
-    max-height: 95vh;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    object-position: center center; /* Ensures better centering */
-
-    margin: 0;
-    z-index: 1000;
-    display: none;
-}
-
-/* Adjust object positioning for wider screens */
-@media (min-aspect-ratio: 16/9) {
-    #photo, #video {
-        object-position: top center; /* Moves focus upward for ultra-wide images */
-    }
-}
-
-/* Adjust for very tall/narrow screens (like phones) */
-@media (max-aspect-ratio: 3/4) {
-    #photo, #video {
-        object-position: center top; /* Prioritizes the upper part of the image */
-    }
-}
-
-#fullscreen-media {
-    position: fixed;
-    max-width: 100vw;
-    max-height: 100vh;
-    object-fit: contain;
-    z-index: 1;
-    display: none;
-    background-color: black;
-}
-
-#fullscreen-media.active {
-    display: block;
-    object-fit: contain;
-
-}
-
-
-
-/* Ensure the album container doesn't interfere with fullscreen view */
-.album {
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
-}
-
-.random_img {
-    position: absolute;
-    width: 20%;
-    height: auto;
-    transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
-    cursor: pointer;
-}
