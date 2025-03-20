@@ -7,6 +7,51 @@
     <link rel="shortcut icon" type="image/ico" href="img/favicon.gif" />
     <link rel="stylesheet" type="text/css" href="/style.css" />
     <title> Miscellaneous </title>
+<style>
+    .fullscreen-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: black;
+    }
+
+    .fullscreen-media {
+        max-width: 100vw;
+        max-height: 100vh;
+        object-fit: cover; /* Ensures full-screen coverage without stretching */
+        display: none;
+        position: absolute;
+    }
+
+    #mediaElement, #videoElement {
+        width: 100%;
+        height: 100%;
+    }
+
+    .description {
+        position: absolute;
+        bottom: 40px;
+        left: 40px;
+        color: white;
+        font-family: 'Arial', sans-serif;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    }
+
+    .description h2 {
+        margin-bottom: 5px;
+        font-size: 1.5rem;
+    }
+
+    .description p {
+        margin: 0;
+        font-size: 1rem;
+    }
+</style>
 
 </head>
 
@@ -31,8 +76,66 @@
         </div>
 
 
-    <!-- Fullscreen media container -->
-    <img id="fullscreen-media" src="" alt="Fullscreen view">
+<div class="fullscreen-container" id="fullscreen-container">
+    <img id="mediaElement" class="fullscreen-media" />
+    <video id="videoElement" class="fullscreen-media" autoplay loop muted></video>
+
+    </div>
+</div>
+    
+    <script>
+        const media = [
+            { type: 'image', src: '/media/LucieKenny_Rotunda_01.jpg', title: 'Rotunda', year: '2019' },
+            { type: 'image', src: '/media/LucieKenny_CovidTee_01.jpg', title: 'Type Gang Covid Tee', year: '2020', text: 'During the lockdown, our type design class of 2020 collaborated on this project, donating to the Paris Hospitals. Fonts designed by Lucas Bernard, Nicolas Dupuis, Robin Guillemin, Hugo Jourdan, Lucie Kenny, Laure-Anne Labbé, Marguerite Leroux, Camille Morin, Jean-Baptiste Normand, Tina Payet, Benjamin Rouzaud, Léa Wolck.'},
+            { type: 'image', src: '/media/LucieKenny_Ouroboros_01.jpg', title: 'Stone carving', year: '2019' , text: 'One-week workshop at Vilnius Academy of the Arts, in Lithuania.'},
+            { type: 'image', src: '/media/LucieKenny_SemiOnciale_01.jpg', title: 'Semi uncial', year: '2020' },
+            { type: 'image', src: '/media/LucieKenny_Hebrew.jpg', title: 'Hebrew calligraphy', year: '2020' },
+            { type: 'image', src: '/media/LucieKenny_FeelTheBern.jpg', title: 'Sign painting', year: '2020' },
+            { type: 'image', src: '/media/LucieKenny_BeauTravail_Mockup.jpg', title: 'Beau Travail', year: '2021', text: 'My font Claude, in use by studio Malmsten Hellberg for the Swedish release of Beau Travail.' }
+        ];
+
+        let currentIndex = 0;
+        const mediaElement = document.getElementById('mediaElement');
+        const videoElement = document.getElementById('videoElement');
+        const descriptionTitle = document.getElementById('description-title');
+        const descriptionYear = document.getElementById('description-year');
+        const descriptionText = document.getElementById('description-text');
+
+        function updateMedia() {
+            const currentMedia = media[currentIndex];
+
+            // Hide all media elements
+            mediaElement.style.display = 'none';
+            videoElement.style.display = 'none';
+
+            if (currentMedia.type === 'image') {
+                mediaElement.src = currentMedia.src;
+                mediaElement.style.display = 'block';
+            } else if (currentMedia.type === 'video') {
+                videoElement.src = currentMedia.src;
+                videoElement.style.display = 'block';
+            }
+
+            descriptionTitle.textContent = currentMedia.title;
+            descriptionYear.textContent = currentMedia.year;
+            descriptionText.textContent = currentMedia.text || '';
+        }
+
+        function nextMedia() {
+            currentIndex = (currentIndex + 1) % media.length;
+            updateMedia();
+        }
+
+        document.getElementById('fullscreen-container').addEventListener('click', nextMedia);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextMedia();
+            }
+        });
+
+        updateMedia(); // Initialize the first image
+    </script>
+
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132391745-1"></script>
@@ -43,69 +146,5 @@
         gtag('config', 'UA-132391745-1');
     </script>
 
-    <script src="/js/jquery.min.js"></script>
-    <div class="fullscreen-container" id="fullscreen-container">
-        <img id="mediaElement" class="fullscreen-media" />
-        <video id="videoElement" class="fullscreen-media" autoplay loop muted></video>
-        <div class="description">
-            <h2 id="description-title"></h2>
-            <p id="description-year"></p>
-            <p id="description-text"></p>
-        </div>
-    </div>
-    
-    <script>
-        const media = [
-            { type: 'image', src: '/media/LucieKenny_FeelTheBern.jpg', title: 'Sign painting', year: '2020' },
-            { type: 'image', src: '/media/LucieKenny_Rotunda_01.jpg', title: 'Rotunda', year: '2019' },
-            { type: 'image', src: '/media/LucieKenny_CovidTee_01.jpg', title: 'Type Gang Covid Tee', year: '2020' },
-            { type: 'video', src: '/media/LucieKenny_AnimatedPattern_01.mp4', title: 'Motion design', year: '2024' },
-            { type: 'image', src: '/media/LucieKenny_Ouroboros_01.jpg', title: 'Stone carving at the Academy of the Arts, Vilnius', year: '2019' },
-            { type: 'image', src: '/media/LucieKenny_SemiOnciale_01.jpg', title: 'Semi uncial', year: '2020' },
-            { type: 'image', src: '/media/LucieKenny_SemiOnciale_02.jpg', title: 'Semi uncial', year: '2020' },
-            { type: 'image', src: '/media/LucieKenny_Ouroboros_03.jpg', title: 'Stone carving at the Academy of the Arts, Vilnius', year: '2019' },
-            { type: 'image', src: '/media/LucieKenny_Hebrew.jpg', title: 'Hebrew calligraphy', year: '2020' },
-            { type: 'image', src: '/media/LucieKenny_BeauTravail_Mockup.jpg', title: 'Beau Travail', year: '2021', text: 'My font Claude, in use by Malmsten Hellberg for the swedish release of Beau Travail.' }
-        ];
-    
-        let currentIndex = 0;
-        const mediaElement = document.getElementById('mediaElement');
-        const videoElement = document.getElementById('videoElement');
-        const descriptionTitle = document.getElementById('description-title');
-        const descriptionYear = document.getElementById('description-year');
-        const descriptionText = document.getElementById('description-text');
-    
-        function updateMedia() {
-            const currentMedia = media[currentIndex];
-    
-            if (currentMedia.type === 'image') {
-                mediaElement.src = currentMedia.src;
-                mediaElement.style.display = 'block';
-                videoElement.style.display = 'none';
-            } else if (currentMedia.type === 'video') {
-                videoElement.src = currentMedia.src;
-                videoElement.style.display = 'block';
-                mediaElement.style.display = 'none';
-            }
-    
-            descriptionTitle.textContent = currentMedia.title;
-            descriptionYear.textContent = currentMedia.year;
-            descriptionText.textContent = currentMedia.text || '';
-        }
-    
-        function nextMedia() {
-            currentIndex = (currentIndex + 1) % media.length;
-            updateMedia();
-        }
-    
-        document.getElementById('fullscreen-container').addEventListener('click', nextMedia);
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight' || e.key === ' ') {
-                nextMedia();
-            }
-        });
-    
-        updateMedia(); // Initialize first image
-    </script>
 </body>
 </html>

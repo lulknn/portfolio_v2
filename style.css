@@ -168,34 +168,6 @@ body {
     opacity: 1;
   }
 
-  /* FULLSCREEN IMAGE/VIDEO STYLES */
-
-.fullscreen-container {
-    position: fixed;
-    size: cover;
-    display: flex;
-    background: black;
-    overflow: hidden;
-}
-
-
-
-#fullscreen-media {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover; /* Ensures full coverage without stretching */
-    transform: translate(-50%, -50%); /* Centers the media */
-}
-
-#fullscreen-media.active {
-    display: block;
-    object-fit: cover;
-
-}
-
 
 
 /* Ensure the album container doesn't interfere with fullscreen view */
