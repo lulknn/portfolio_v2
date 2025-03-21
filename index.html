@@ -107,149 +107,108 @@
     
     <script>
         $(document).ready(function () {
-            var bodyWidth = $("#album").width();
-            var bodyHeight = $(window).height();
-            var images = $('.random_img');
-            var positions = [];
+    var bodyWidth = $("#album").width();
+    var bodyHeight = $(window).height();
+    var images = $('.random_img');
+    var positions = [];
+    
+    // Position first image near the menu (top-left area)
+    var firstImg = $(images[0]);
+    var menuOffset = 250;
+    var startX = menuOffset + Math.random() * 80;
+    var startY = 100 + Math.random() * 80;
+    
+    positions.push({ x: startX, y: startY });
+
+    firstImg.css({ left: startX, top: startY });
+
+    // Position other images relative to previous ones
+    for (var i = 1; i < images.length; i++) {
+        var img = $(images[i]);
+        var imgWidth = img.width();
+        var imgHeight = img.height();
+        var placed = false;
+        var attempts = 0;
+        
+        while (!placed && attempts < 100) {
+            attempts++;
+            var connectTo = positions[Math.floor(Math.random() * positions.length)];
+            var angle = Math.random() * 2 * Math.PI;
+            var distance = Math.random() * 70 + 50; // Increased spacing range: 50 to 120 pixels
             
-            // Position first image near the menu (top-left area)
-            var firstImg = $(images[0]);
-            var menuOffset = 250;
-            var startX = menuOffset + Math.random() * 80;
-            var startY = 100 + Math.random() * 80;
+            var newX = connectTo.x + Math.cos(angle) * distance;
+            var newY = connectTo.y + Math.sin(angle) * distance;
             
-            positions.push({
-                x: startX,
-                y: startY
-            });
+            var padding = 20;
+            newX = Math.max(menuOffset, Math.min(newX, bodyWidth - imgWidth - padding));
+            newY = Math.max(padding, Math.min(newY, bodyHeight - imgHeight - padding));
             
-            firstImg.css({
-                left: startX,
-                top: startY
-            });
-            
-            // Position other images relative to previous ones
-            for (var i = 1; i < images.length; i++) {
-                var img = $(images[i]);
-                var imgWidth = img.width();
-                var imgHeight = img.height();
-                var placed = false;
-                var attempts = 0;
-                
-                while (!placed && attempts < 100) {
-                    attempts++;
-                    var connectTo = positions[Math.floor(Math.random() * positions.length)];
-                    var angle = Math.random() * 2 * Math.PI;
-                    var distance = Math.random() * 50 + 30;
-                    
-                    var newX = connectTo.x + Math.cos(angle) * distance;
-                    var newY = connectTo.y + Math.sin(angle) * distance;
-                    
-                    var padding = 20;
-                    newX = Math.max(menuOffset, Math.min(newX, bodyWidth - imgWidth - padding));
-                    newY = Math.max(padding, Math.min(newY, bodyHeight - imgHeight - padding));
-                    
-                    var overlaps = false;
-                    for (var j = 0; j < positions.length; j++) {
-                        var pos = positions[j];
-                        var dx = newX - pos.x;
-                        var dy = newY - pos.y;
-                        var distance = Math.sqrt(dx * dx + dy * dy);
-                        if (distance < 60) {
-                            overlaps = true;
-                            break;
-                        }
-                    }
-                    
-                    if (!overlaps) {
-                        positions.push({
-                            x: newX,
-                            y: newY
-                        });
-                        img.css({
-                            left: newX,
-                            top: newY
-                        });
-                        placed = true;
-                    }
-                }
-                
-                if (!placed) {
-                    var lastPos = positions[positions.length - 1];
-                    var safeX = Math.max(menuOffset, Math.min(lastPos.x + 60, bodyWidth - imgWidth - padding));
-                    var safeY = Math.max(padding, Math.min(lastPos.y + 60, bodyHeight - imgHeight - padding));
-                    
-                    positions.push({
-                        x: safeX,
-                        y: safeY
-                    });
-                    img.css({
-                        left: safeX,
-                        top: safeY
-                    });
+            var overlaps = false;
+            for (var j = 0; j < positions.length; j++) {
+                var pos = positions[j];
+                var dx = newX - pos.x;
+                var dy = newY - pos.y;
+                var minDistance = 100; // Increased minimum spacing to 100px
+                if (Math.sqrt(dx * dx + dy * dy) < minDistance) {
+                    overlaps = true;
+                    break;
                 }
             }
+            
+            if (!overlaps) {
+                positions.push({ x: newX, y: newY });
+                img.css({ left: newX, top: newY });
+                placed = true;
+            }
+        }
+        
+        if (!placed) {
+            var lastPos = positions[positions.length - 1];
+            var safeX = Math.max(menuOffset, Math.min(lastPos.x + 100, bodyWidth - imgWidth - padding));
+            var safeY = Math.max(padding, Math.min(lastPos.y + 100, bodyHeight - imgHeight - padding));
+            
+            positions.push({ x: safeX, y: safeY });
+            img.css({ left: safeX, top: safeY });
+        }
+    }
 
-            // Add click handlers for fullscreen image viewing
-            $('.random_img').click(function(e) {
-                e.preventDefault(); // Prevent default link behavior
-                var imgSrc = $(this).attr('src');
-                var parentLink = $(this).parent('a').attr('href');
-                
-                // Create or get the fullscreen image element
-                var fullscreenImg = $('#photo');
-                if (fullscreenImg.length === 0) {
-                    fullscreenImg = $('<img id="photo" />').appendTo('body');
-                }
-                
-                // Set up the fullscreen image
-                fullscreenImg.attr('src', imgSrc)
-                    .addClass('active')
-                    .one('click', function() {
-                        // On click of fullscreen image
-                        if (parentLink) {
-                            window.location.href = parentLink; // Navigate to the link
-                        } else {
-                            $(this).removeClass('active'); // Just hide the image
-                        }
-                    });
-            });
+    // Click event for redirecting images
+    $('.random_img').click(function (e) {
+        var parentLink = $(this).parent('a').attr('href');
+        if (parentLink) {
+            window.location.href = parentLink;
+        }
+    });
 
-            // Handle hover effects
-            $(".random_img").hover(
-                function () {
-                    var $this = $(this);
-                    var hoverX = $this.position().left + $this.width() / 2;
-                    var hoverY = $this.position().top + $this.height() / 2;
-    
-                    $(".random_img").not($this).each(function () {
-                        var $img = $(this);
-                        var imgX = $img.position().left + $img.width() / 2;
-                        var imgY = $img.position().top + $img.height() / 2;
-    
-                        var distance = Math.sqrt(Math.pow(hoverX - imgX, 2) + Math.pow(hoverY - imgY, 2));
-    
-                        if (distance < 200) {
-                            var offsetX = (imgX - hoverX) / distance * 10;
-                            var offsetY = (imgY - hoverY) / distance * 10;
-                            $img.css("transform", `translate(${offsetX}px, ${offsetY}px)`);
-                        }
-                    });
-    
-                    $(".random_img").not($this).addClass("blurred");
-                },
-                function () {
-                    $(".random_img").removeClass("blurred").css("transform", "translate(0, 0)");
-                }
-            );
+    // Handle hover effects
+    $(".random_img").hover(
+        function () {
+            var $this = $(this);
+            var hoverX = $this.position().left + $this.width() / 2;
+            var hoverY = $this.position().top + $this.height() / 2;
 
-            // Close fullscreen image when pressing Escape
-            $(document).keydown(function(e) {
-                if (e.key === "Escape") {
-                    $('#photo').removeClass('active');
+            $(".random_img").not($this).each(function () {
+                var $img = $(this);
+                var imgX = $img.position().left + $img.width() / 2;
+                var imgY = $img.position().top + $img.height() / 2;
+
+                var distance = Math.sqrt(Math.pow(hoverX - imgX, 2) + Math.pow(hoverY - imgY, 2));
+
+                if (distance < 200) {
+                    var offsetX = (imgX - hoverX) / distance * 10;
+                    var offsetY = (imgY - hoverY) / distance * 10;
+                    $img.css("transform", `translate(${offsetX}px, ${offsetY}px)`);
                 }
             });
-        });
+
+            $(".random_img").not($this).addClass("blurred");
+        },
+        function () {
+            $(".random_img").removeClass("blurred").css("transform", "translate(0, 0)");
+        }
+    );
+});
+
     </script>
 
 </body>
