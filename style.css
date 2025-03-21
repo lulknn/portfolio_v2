@@ -190,27 +190,39 @@ body {
 
 
 .slideshow {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 3 columns on large screens */
-    gap: 4px; /* Adjust space between images */
-    max-width: 100%; /* Limit slideshow to 50% width */
-    z-index: 50; /* Keep slideshow below description */
-    padding: 20px;
+    column-gap: 4px;
+    max-width: 100%;
+    z-index: 50;
     position: absolute;
-    top: 40px; /* Always 25px from the top */
-    right: 40px; /* Always 25px from the right */
-    grid-auto-flow: dense; 
+    top: 40px;
+    right: 40px;
 }
 
+/* Two-column layout for screens wider than 1000px */
+@media (min-width: 1200px) {
+    .slideshow {
+        column-count: 2;
+    }
+}
+
+/* Single column (stacked layout) for screens narrower than 1000px */
+@media (max-width: 1200) {
+    .slideshow {
+        column-count: 1; /* Stack media vertically */
+        
+    }
+}
 
 .slideshow img, .slideshow video {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Full column width */
     display: block;
     border-radius: 5px;
-    object-fit: contain; /* Ensure images cover the grid cells properly */
-    object-position: center; /* Center images within their grid cell */
+    object-fit: contain;
+    object-position: center;
+    margin-bottom: 4px; /* Prevents items from sticking together */
 }
+
+
 
 /* Left and Right Clickable Areas */
 .slideshow-left, .slideshow-right {
@@ -419,11 +431,11 @@ a {
 
 
 /* Media Query for screens narrower than 1024px */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
 
     .description-container {
         position: fixed; /* Keep it fixed on the left */
-        max-width: 30%; /* Allow description to take full width */
+        max-width: 50%; /* Allow description to take full width */
         top: 200px; /* Ensure it stays at the same vertical position */
         z-index: 200; /* Keep it on top */
     }
@@ -436,27 +448,32 @@ a {
     }
 
     .slideshow {
-        max-width: 100%; /* Slideshow takes full width */
+        max-width: 45%; /* Slideshow takes full width */
         grid-template-columns: 1fr; /* Stack images vertically */
         padding-top: 0; /* Prevent extra space at top */
+        
     }
 }
 
 /* Media Query for mobile screens (below 768px) */
-@media (max-width: 768px) {
+@media (max-width: 750px) {
     .description-container {
         font-size: 0.8rem; /* Fixed width */
-        max-width: 30%; /* Allow description to take full width */
+        max-width: 80%; /* Allow description to take full width */
+        
     }
 
     .slideshow {
         grid-template-columns: 1fr; /* Stack images vertically */
         margin-top: 500px; /* Add more space above the slideshow */
+        position: relative;
+        left: 40px;
+        max-width: 89%; /* Slideshow takes full width */
     }
 }
 
 /* Media Query for larger screens (min-width: 1024px) */
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
 
 
     .description-container {
@@ -473,7 +490,7 @@ a {
 
     .slideshow {
         max-width: 70%; /* Slideshow takes 50% of the width */
-        padding-top: 50; /* Reset padding */
-    }
+        right: 40px;
+            }
 }
 
