@@ -191,15 +191,15 @@ body {
 
 .slideshow {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjust columns based on screen size */
-    gap: 20px; /* Adjust space between images */
-    margin-left: 340px; /* Ensure slideshow starts after description */
-    max-width: calc(100% - 340px); /* Limit slideshow to 50% width */
-    position: relative;
+    grid-template-columns: repeat(2, 1fr); /* 3 columns on large screens */
+    gap: 4px; /* Adjust space between images */
+    max-width: 100%; /* Limit slideshow to 50% width */
     z-index: 50; /* Keep slideshow below description */
-    padding-top: 40px; /* Add space above slideshow */
     padding: 20px;
-    box-sizing: border-box;
+    position: absolute;
+    top: 40px; /* Always 25px from the top */
+    right: 40px; /* Always 25px from the right */
+    grid-auto-flow: dense; 
 }
 
 
@@ -215,7 +215,6 @@ body {
 /* Left and Right Clickable Areas */
 .slideshow-left, .slideshow-right {
     position: absolute;
-    top: 0;
     width: 60%;
     height: 100%;
     cursor: pointer;  /* Show clickable hand cursor */
@@ -424,7 +423,7 @@ a {
 
     .description-container {
         position: fixed; /* Keep it fixed on the left */
-        max-width: 100%; /* Allow description to take full width */
+        max-width: 30%; /* Allow description to take full width */
         top: 200px; /* Ensure it stays at the same vertical position */
         z-index: 200; /* Keep it on top */
     }
@@ -447,12 +446,11 @@ a {
 @media (max-width: 768px) {
     .description-container {
         font-size: 0.8rem; /* Fixed width */
-        margin-top: -40px;
+        max-width: 30%; /* Allow description to take full width */
     }
 
     .slideshow {
         grid-template-columns: 1fr; /* Stack images vertically */
-        gap: 5px; /* Reduce gap between images */
         margin-top: 500px; /* Add more space above the slideshow */
     }
 }
@@ -474,7 +472,7 @@ a {
     }
 
     .slideshow {
-        max-width: 50%; /* Slideshow takes 50% of the width */
+        max-width: 70%; /* Slideshow takes 50% of the width */
         padding-top: 50; /* Reset padding */
     }
 }
