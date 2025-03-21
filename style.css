@@ -133,6 +133,7 @@ body {
     display: block; /* Prevents any extra space under images */
 }
 
+
 /* Remove extra spacing from section tags */
 .image-grid section {
     margin: 0;
@@ -435,7 +436,7 @@ a {
 
     .description-container {
         position: fixed; /* Keep it fixed on the left */
-        max-width: 50%; /* Allow description to take full width */
+        max-width: 40%; /* Allow description to take full width */
         top: 200px; /* Ensure it stays at the same vertical position */
         z-index: 200; /* Keep it on top */
     }
@@ -448,7 +449,7 @@ a {
     }
 
     .slideshow {
-        max-width: 45%; /* Slideshow takes full width */
+        max-width: 55%; /* Slideshow takes full width */
         grid-template-columns: 1fr; /* Stack images vertically */
         padding-top: 0; /* Prevent extra space at top */
         
