@@ -199,20 +199,7 @@ body {
     right: 40px;
 }
 
-/* Two-column layout for screens wider than 1000px */
-@media (min-width: 1200px) {
-    .slideshow {
-        column-count: 2;
-    }
-}
 
-/* Single column (stacked layout) for screens narrower than 1000px */
-@media (max-width: 1200) {
-    .slideshow {
-        column-count: 1; /* Stack media vertically */
-        
-    }
-}
 
 .slideshow img, .slideshow video {
     width: 100%; /* Full column width */
@@ -492,6 +479,8 @@ a {
     .slideshow {
         max-width: 70%; /* Slideshow takes 50% of the width */
         right: 40px;
+        column-count: 2;
+
             }
 }
 
