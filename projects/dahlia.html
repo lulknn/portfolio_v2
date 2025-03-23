@@ -44,17 +44,18 @@
 
             <h2 class="description-additional">
                 Art direction: Jérémy Schneider, Violaine Orsoni <br>Design: Jérémy Schneider, Lucie Kenny
-                <br>Mastering & development: Lucie Kenny, Romain Oudin<br>Animation: Lucie Kenny<br><a href="https://vj-type.com/">Available for purchase on vj-type</a>
-                
-               
+                <br>Mastering & development: Lucie Kenny, Romain Oudin<br>Animation: Lucie Kenny<br>
+                <a href="https://vj-type.com/">Available for purchase on vj-type</a>
                 
                 <br><br>Featured projects: <br>Théâtre de l'Athénée by Studio Violaine & Jérémy <br>Swan Dive by Glasfurd Walker
                     <br>Spores by Broccoli, pic. Alex Valentina<br>L'Alliance New York by Pentagram<br>Vera by Furman<br>Coramino by Battery / Kuya
                     <br>Theater und Philharmonie Essen by Studio Mario Lombardo</h2>
-
-
         </div>
 
+        <div id="lightbox" class="lightbox">
+            <img class="lightbox-content" id="lightbox-img">
+            <video class="lightbox-content" id="lightbox-video" controls></video>
+        </div>
 
         <div class="slideshow">
             <video autoplay muted loop source src="/media/Dahlia_VJType_LucieKenny_Anim_01.mp4" type="video/mp4"></video>
@@ -95,6 +96,46 @@
         document.querySelector(".description-additional").classList.toggle("hidden");
     });
 </script>
+
+<script>document.querySelectorAll(".slideshow img, .slideshow video").forEach(media => {
+    media.addEventListener("click", function() {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        const lightboxVideo = document.getElementById("lightbox-video");
+
+        lightbox.style.display = "flex"; // Show lightbox
+
+        // If the clicked media is an image
+        if (this.tagName === "IMG") {
+            lightboxImg.src = this.src;
+            lightboxImg.style.display = "block"; // Show image
+            lightboxVideo.style.display = "none"; // Hide video
+            lightboxVideo.pause(); // Stop any playing video
+            lightboxVideo.removeAttribute("controls"); // Remove controls
+        } 
+        // If the clicked media is a video
+        else if (this.tagName === "VIDEO") {
+            lightboxVideo.src = this.src;
+            lightboxVideo.style.display = "block"; // Show video
+            lightboxImg.style.display = "none"; // Hide image
+            lightboxVideo.removeAttribute("controls"); // Remove controls
+            lightboxVideo.loop = true; // Enable looping
+            lightboxVideo.play(); // Start video playback automatically
+        }
+    });
+});
+
+// Close lightbox when clicking outside the media
+document.getElementById("lightbox").addEventListener("click", function(event) {
+    if (event.target !== document.getElementById("lightbox-img") &&
+        event.target !== document.getElementById("lightbox-video")) {
+        this.style.display = "none";
+        document.getElementById("lightbox-video").pause(); // Stop video playback when closing
+    }
+});
+
+ </script>
+
 
 </body>
 

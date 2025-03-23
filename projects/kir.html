@@ -39,10 +39,16 @@
             <div class="hover-area"></div>
 
             <h2 class="description-additional hidden">
-                Creative direction: Margaux Botton<br>Production: Marie Pancrazi<br>Design supervision: Alexandre Bachmatiuk <br> AI Art: Victor Rocheteau<br>3D & Motion design: Simon Jean, Élie Massip<br>Typography: Lucie Kenny<br><br><a href="https://17mars.com/en/home/">Made at 17mars</a></h2>
+                Creative direction: Margaux Botton<br>Production: Marie Pancrazi<br>Design supervision: Alexandre Bachmatiuk
+                <br> AI Art: Victor Rocheteau<br>3D & Motion design: Simon Jean, Élie Massip<br>Typography: Lucie Kenny<br><br><a href="https://17mars.com/en/home/">Made at 17mars</a></h2>
 
         </div>
 
+        <div id="lightbox" class="lightbox">
+            <img class="lightbox-content" id="lightbox-img">
+            <video class="lightbox-content" id="lightbox-video" controls></video>
+        </div>
+        
         <div class="slideshow-wrapper">
         <div class="slideshow">
             <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1027207562?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="WE LOVE YOUR NAMES | NUIT DU GÉNÉRIQUE 2023"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
@@ -57,10 +63,6 @@
             <img src="/media/17MARS_KIR_26.jpg" />
             <video autoplay muted loop source src="/media/17MARS_KIR_ANIM_TYPO_nb_1920x1080.mp4" type="video/mp4"></video>
         </div>
-
-
-
-
 
         </div>
 
@@ -83,6 +85,44 @@
     });
 </script>
 
+<script>document.querySelectorAll(".slideshow img, .slideshow video").forEach(media => {
+    media.addEventListener("click", function() {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        const lightboxVideo = document.getElementById("lightbox-video");
+
+        lightbox.style.display = "flex"; // Show lightbox
+
+        // If the clicked media is an image
+        if (this.tagName === "IMG") {
+            lightboxImg.src = this.src;
+            lightboxImg.style.display = "block"; // Show image
+            lightboxVideo.style.display = "none"; // Hide video
+            lightboxVideo.pause(); // Stop any playing video
+            lightboxVideo.removeAttribute("controls"); // Remove controls
+        } 
+        // If the clicked media is a video
+        else if (this.tagName === "VIDEO") {
+            lightboxVideo.src = this.src;
+            lightboxVideo.style.display = "block"; // Show video
+            lightboxImg.style.display = "none"; // Hide image
+            lightboxVideo.removeAttribute("controls"); // Remove controls
+            lightboxVideo.loop = true; // Enable looping
+            lightboxVideo.play(); // Start video playback automatically
+        }
+    });
+});
+
+// Close lightbox when clicking outside the media
+document.getElementById("lightbox").addEventListener("click", function(event) {
+    if (event.target !== document.getElementById("lightbox-img") &&
+        event.target !== document.getElementById("lightbox-video")) {
+        this.style.display = "none";
+        document.getElementById("lightbox-video").pause(); // Stop video playback when closing
+    }
+});
+
+ </script>
 
 </body>
 

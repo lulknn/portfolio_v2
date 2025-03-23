@@ -36,26 +36,22 @@
            <p class="description-text">On November 9th, 2016, millions of Americans thought they were waking up from a nightmare. 
                I documented a protest that took place on that day on Columbus Circle in New York City. 
                These photographs, gathered in an self-edited book, attempt at capturing different voices and showcasing strength from people of all ages. </p>
-
-
-
         </div>
 
+        <div id="lightbox" class="lightbox">
+            <img class="lightbox-content" id="lightbox-img">
+        </div>
 
         <div class="slideshow">
-
             <img src="/media/hangover1.jpg" />
             <img src ="/media/IMG_9315-NB.jpg" />
-
             <img src="/media/hangover2.jpg" />
             <img src ="/media/IMG_9304-NB.jpg" />
             <img src ="/media/IMG_9327-NB.jpg" />
             <img src="/media/hangover4.jpg" />
             <img src ="/media/IMG_9377-NB.jpg"/>
-
             <img src="/media/hangover3.jpg" />
             <img src ="/media/IMG_9402-NB.jpg"/>
-
         </div>
 
     </div>
@@ -69,6 +65,27 @@
 
         gtag('config', 'UA-132391745-1');
     </script>
+
+
+<script>
+    document.querySelectorAll(".slideshow img").forEach(img => {
+        img.addEventListener("click", function() {
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+    
+            lightbox.style.display = "flex"; // Show lightbox
+            lightboxImg.src = this.src; // Set image source
+        });
+    });
+    
+    // Close lightbox when clicking outside the image
+    document.getElementById("lightbox").addEventListener("click", function(event) {
+        if (event.target !== document.getElementById("lightbox-img")) {
+            this.style.display = "none";
+        }
+    });
+    
+ </script>
 
 
 </body>

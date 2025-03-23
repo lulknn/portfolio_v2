@@ -186,8 +186,6 @@ body {
 
 /* SLIDESHOW IMAGES DANS PROJET */
 
-
-
 .slideshow {
     column-gap: 4px;
     max-width: 100%;
@@ -198,7 +196,6 @@ body {
 }
 
 
-
 .slideshow img, .slideshow video {
     width: 100%; /* Full column width */
     display: block;
@@ -207,7 +204,6 @@ body {
     object-position: center;
     margin-bottom: 4px; /* Prevents items from sticking together */
 }
-
 
 
 /* Left and Right Clickable Areas */
@@ -226,6 +222,37 @@ body {
     right: 0;
  }
 
+ #fullsize-slideshow .slideshow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lightbox {
+    display: none; /* Hidden by default */
+    position: fixed;
+    filter: none;
+    pointer-events: auto;
+    z-index: 500;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
+
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+}
+
+#lightbox-img, #lightbox-video {
+    display: none; /* Hide both by default */
+}
    
 .description-container {
     position: fixed;

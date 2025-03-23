@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="dahlia" />
+    <link rel="shortcut icon" type="image/ico" href="img/favicon.gif" />
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <title> Claude </title>
+
+
+
+</head>
+
+
+<body>
+
+    <div class="main-container">
+
+        <div class="menu-container">
+            <ul><li><a href="/index.html">lucie kenny</a></li>
+                <br>
+                <li><a href="/projects/projects.html">projects</a></li>
+                <li><a href="/type_projects/type.html">type</a></li>
+                <li><a href="/miscellaneous/miscellaneous.html">miscellaneous</a></li>
+                <li><a href="/about.html">about</a></li>
+            </ul>
+
+        </div>
+
+        
+        <div class="description-container">
+            <h2 class="description-title">Claude</h2>
+            <h2 class="description-year">2019</h2>
+            <p class="description-text"> Claude is a typeface sourced from a deep calligraphic study and inspired by my grandmother,
+                a novelist of strong character. The font, designed with a need of clear legibility, fits long text purposes and features 
+                classic shapes of humanistic strokes, originating from the nib angle. Claude is available on request and offers more
+                than 500 latin glyphs. Claude display is in progress.</p>
+
+            <div class="hover-area"></div>
+
+            <h2 class="description-additional">
+                Design, mastering & development: Lucie Kenny</h2>
+        </div>
+
+        <div id="lightbox" class="lightbox">
+            <img class="lightbox-content" id="lightbox-img">
+        </div>
+
+        <div class="slideshow">
+            <img src="/media/LucieKenny_Claude_specimen_05.jpg" />
+            <img src="/media/LucieKenny_Claude_specimen_01.jpg" />
+            <img src="/media/LucieKenny_Claude_specimen_03.jpg" />
+            <img src="/media/LucieKenny_Claude_specimen_06.jpg" />
+            <img src="/media/LucieKenny_Claude_specimen_04.jpg" />
+            <img src="/media/LucieKenny_Claude_specimen_08.jpg" />
+            <img src="/media/LucieKenny_Claude_specimen_07.jpg" />
+            <img src="/media/LucieKenny_Claude_specimen_02.jpg" />
+
+        </div>
+
+    </div>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132391745-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-132391745-1');
+    </script>
+
+<script>
+    document.querySelector(".hover-area").addEventListener("click", function() {
+        document.querySelector(".description-additional").classList.toggle("hidden");
+    });
+</script>
+
+<script>
+document.querySelectorAll(".slideshow img").forEach(img => {
+    img.addEventListener("click", function() {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+
+        lightbox.style.display = "flex"; // Show lightbox
+        lightboxImg.src = this.src; // Set image source
+    });
+});
+
+// Close lightbox when clicking outside the image
+document.getElementById("lightbox").addEventListener("click", function(event) {
+    if (event.target !== document.getElementById("lightbox-img")) {
+        this.style.display = "none";
+    }
+});
+
+    </script>
+    
+
+</body>
+
+
+</html>

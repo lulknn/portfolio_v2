@@ -7,15 +7,10 @@
     <link rel="shortcut icon" type="image/ico" href="img/favicon.gif" />
     <link rel="stylesheet" type="text/css" href="/style.css" />
     <title> Première Saison </title>
-
-
-
 </head>
 
 
 <body>
-
-
         <div class="menu-container">
             <ul><li><a href="/index.html">lucie kenny</a></li>
                 <br>
@@ -30,20 +25,19 @@
         <div class="description-container">
             <h2 class="description-title">Première Saison</h2>
             <h2 class="description-year">2024</h2>
-
-
             <p class="description-text"> 
                 Identity for Première Saison, a production company aiming at telling stories through different commitments and projects.
             </p>
-            
             <div class="hover-area"></div>
-
             <h2 class="description-additional">
-                Art direction: Lucie Kenny <br>Production: Alison Chavigny<br>Logo design & motion design: Lucie Kenny<br><br><a href="https://17mars.com/en/home/">Made at 17mars</a></h2>
-
-
+                Art direction: Lucie Kenny <br>Production: Alison Chavigny<br>Logo design & motion design: Lucie Kenny<br><br>
+                <a href="https://17mars.com/en/home/">Made at 17mars</a></h2>
         </div>
 
+        <div id="lightbox" class="lightbox">
+            <img class="lightbox-content" id="lightbox-img">
+            <video class="lightbox-content" id="lightbox-video" controls></video>
+        </div>
 
         <div class="slideshow">
             <img src="/media/17MARS_PREMIERE_SAISON_LOGO_2L.png" />
@@ -51,7 +45,6 @@
             <img src="/media/17MARS_PS_LOGO_MARQUAGE_01.jpg" />
             <video autoplay muted loop source src="/media/17MARS_PS_BOUCLE.mp4" type="video/mp4"></video>
             <img src="/media/17MARS_PS_TOTE_02.jpg" />
-
         </div>
 
 
@@ -71,7 +64,46 @@
     });
 </script>
 
+<script>
+    document.querySelectorAll(".slideshow img, .slideshow video").forEach(media => {
+        media.addEventListener("click", function() {
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+            const lightboxVideo = document.getElementById("lightbox-video");
+    
+            lightbox.style.display = "flex"; // Show lightbox
+    
+            // If the clicked media is an image
+            if (this.tagName === "IMG") {
+                lightboxImg.src = this.src;
+                lightboxImg.style.display = "block"; // Show image
+                lightboxVideo.style.display = "none"; // Hide video
+                lightboxVideo.pause(); // Stop any playing video
+                lightboxVideo.removeAttribute("controls"); // Remove controls
+            } 
+            // If the clicked media is a video
+            else if (this.tagName === "VIDEO") {
+                lightboxVideo.src = this.src;
+                lightboxVideo.style.display = "block"; // Show video
+                lightboxImg.style.display = "none"; // Hide image
+                lightboxVideo.removeAttribute("controls"); // Remove controls
+                lightboxVideo.loop = true; // Enable looping
+                lightboxVideo.play(); // Start video playback automatically
+            }
+        });
+    });
+    
+    // Close lightbox when clicking outside the media
+    document.getElementById("lightbox").addEventListener("click", function(event) {
+        if (event.target !== document.getElementById("lightbox-img") &&
+            event.target !== document.getElementById("lightbox-video")) {
+            this.style.display = "none";
+            document.getElementById("lightbox-video").pause(); // Stop video playback when closing
+        }
+    });
+    
+     </script>
+
+
 </body>
-
-
 </html>

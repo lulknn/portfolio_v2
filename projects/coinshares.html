@@ -41,6 +41,10 @@
                 <br>Motion design : Romain Robert, <a href="https://www.nicolasmatelot.fr/">Nicolas Matelot</a><br><br><a href="https://17mars.com/">Made at 17mars</a></h2>
                 </div>
 
+                <div id="lightbox" class="lightbox">
+                    <img class="lightbox-content" id="lightbox-img">
+                </div>
+
             <div class="slideshow-wrapper">
             <div class="slideshow">
             <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/784338921?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="17MARS | COINSHARES | MANIFESTO"></iframe></div>
@@ -69,6 +73,26 @@
         document.querySelector(".description-additional").classList.toggle("hidden");
     });
 </script>
+
+<script>
+    document.querySelectorAll(".slideshow img").forEach(img => {
+        img.addEventListener("click", function() {
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+    
+            lightbox.style.display = "flex"; // Show lightbox
+            lightboxImg.src = this.src; // Set image source
+        });
+    });
+    
+    // Close lightbox when clicking outside the image
+    document.getElementById("lightbox").addEventListener("click", function(event) {
+        if (event.target !== document.getElementById("lightbox-img")) {
+            this.style.display = "none";
+        }
+    });
+    
+        </script>
 
 </body>
 

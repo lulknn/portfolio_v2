@@ -31,27 +31,23 @@
         <div class="description-container">
             <h2 class="description-title">Arte greeting card</h2>
             <h2 class="description-year">2025</h2>
-
-
             <p class="description-text"> 
-                Arte reached out to design their greeting card, both in printed and digital versions. Create a beautiful object that matches the concept we initially developed for broadcast purposes : knitting. </p>
-
+                Arte reached out to design their greeting card, both in printed and digital versions.
+                Create a beautiful object that matches the concept we initially developed for broadcast purposes : knitting. </p>
             <div class="hover-area"></div>
-
             <h2 class="description-additional">
                 Creative direction: Geraldine Karolyi<br>Production: Julie Gaub<br>Art direction: Théo Scheid <br>Graphic design: Lucie Kenny<br><br><a href="https://17mars.com/en/home/">Made at 17mars</a>
                 </h2>
-
-
         </div>
 
+        <div id="lightbox" class="lightbox">
+            <img class="lightbox-content" id="lightbox-img">
+        </div>
 
         <div class="slideshow">
             <img src="/media/17MARS_ARTE_NOEL_2024_VOEUX_4.jpg" />
             <img src="/media/17MARS_ARTE_NOEL_2024_VOEUX_2.jpg" />
             <img src="/media/17MARS_ARTE_NOEL_2024_VOEUX_5.jpg" />
-
-
         </div>
 
     </div>
@@ -71,6 +67,25 @@
         document.querySelector(".description-additional").classList.toggle("hidden");
     });
 </script>
+<script>
+    document.querySelectorAll(".slideshow img").forEach(img => {
+        img.addEventListener("click", function() {
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+    
+            lightbox.style.display = "flex"; // Show lightbox
+            lightboxImg.src = this.src; // Set image source
+        });
+    });
+    
+    // Close lightbox when clicking outside the image
+    document.getElementById("lightbox").addEventListener("click", function(event) {
+        if (event.target !== document.getElementById("lightbox-img")) {
+            this.style.display = "none";
+        }
+    });
+    
+        </script>
 
 </body>
 
