@@ -4,7 +4,7 @@
     font-family: 'Libre Franklin';
     font-style: normal;
     font-weight: 500;
-    src: url('/fonts/libre-franklin-v18-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    src: url('/fonts/libre-franklin-v18-latin-500.woff2') format('woff2'); 
   }
   
 
@@ -14,7 +14,7 @@
     font-family: 'Libre Franklin';
     font-style: normal;
     font-weight: 400;
-    src: url('/fonts/libre-franklin-v18-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    src: url('/fonts/libre-franklin-v18-latin-regular.woff2') format('woff2'); 
   }
   
 /* libre-franklin-900 - latin */
@@ -23,24 +23,22 @@
     font-family: 'Libre Franklin';
     font-style: normal;
     font-weight: 900;
-    src: url('../fonts/libre-franklin-v18-latin-900.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    src: url('../fonts/libre-franklin-v18-latin-900.woff2') format('woff2');
   }
 
+  /* libre-franklin-900 - latin */
+@font-face {
+    font-display: swap; 
+    font-family: 'Fraunces9ptSuperSoft-LightItalic';
+    src: url('../fonts/Fraunces9ptSuperSoft-LightItalic.woff2') format('woff2'); 
+  }
+
+
 body {
-    @font-face {
-        font-family: 'Fraunces9ptSuperSoft-ThinItalic';
-      }
-
-      @font-face {
-        font-family: 'Optima';
-      }
-
-
     color: rgb(171, 171, 171);
     text-align: left;
     margin: 0;
     background-color: rgb(14, 22, 29);
-    /* overflow: hidden; */
 }
 
 
