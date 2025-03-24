@@ -33,9 +33,8 @@
             <h2 class="description-title">Claude</h2>
             <h2 class="description-year">2019</h2>
             <p class="description-text"> Claude is a typeface sourced from a deep calligraphic study and inspired by my grandmother,
-                a novelist of strong character. The font, designed with a need of clear legibility, fits long text purposes and features 
-                classic shapes of humanistic strokes, originating from the nib angle. Claude is available on request and offers more
-                than 500 latin glyphs. Claude display is in progress.</p>
+                a novelist of strong character. The font exists both in display and text. Claude text was especially designed with a need of clear legibility,
+                fitting for long text purposes and featuring classic shapes of humanistic strokes. Claude is available on request and offers more than 500 latin glyphs.</p>
 
             <div class="hover-area"></div>
 
@@ -45,6 +44,7 @@
 
         <div id="lightbox" class="lightbox">
             <img class="lightbox-content" id="lightbox-img">
+            <video class="lightbox-content" id="lightbox-video" controls></video>
         </div>
 
         <div class="slideshow">
@@ -55,7 +55,6 @@
             <img src="/media/LucieKenny_Claude_specimen_04.jpg" />
             <img src="/media/LucieKenny_Claude_specimen_08.jpg" />
             <img src="/media/LucieKenny_Claude_specimen_07.jpg" />
-            <img src="/media/LucieKenny_Claude_specimen_02.jpg" />
 
         </div>
 
@@ -78,24 +77,44 @@
 </script>
 
 <script>
-document.querySelectorAll(".slideshow img").forEach(img => {
-    img.addEventListener("click", function() {
-        const lightbox = document.getElementById("lightbox");
-        const lightboxImg = document.getElementById("lightbox-img");
-
-        lightbox.style.display = "flex"; // Show lightbox
-        lightboxImg.src = this.src; // Set image source
+    document.querySelectorAll(".slideshow img, .slideshow video").forEach(media => {
+        media.addEventListener("click", function() {
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+            const lightboxVideo = document.getElementById("lightbox-video");
+    
+            lightbox.style.display = "flex"; // Show lightbox
+    
+            // If the clicked media is an image
+            if (this.tagName === "IMG") {
+                lightboxImg.src = this.src;
+                lightboxImg.style.display = "block"; // Show image
+                lightboxVideo.style.display = "none"; // Hide video
+                lightboxVideo.pause(); // Stop any playing video
+                lightboxVideo.removeAttribute("controls"); // Remove controls
+            } 
+            // If the clicked media is a video
+            else if (this.tagName === "VIDEO") {
+                lightboxVideo.src = this.src;
+                lightboxVideo.style.display = "block"; // Show video
+                lightboxImg.style.display = "none"; // Hide image
+                lightboxVideo.removeAttribute("controls"); // Remove controls
+                lightboxVideo.loop = true; // Enable looping
+                lightboxVideo.play(); // Start video playback automatically
+            }
+        });
     });
-});
-
-// Close lightbox when clicking outside the image
-document.getElementById("lightbox").addEventListener("click", function(event) {
-    if (event.target !== document.getElementById("lightbox-img")) {
-        this.style.display = "none";
-    }
-});
-
-    </script>
+    
+    // Close lightbox when clicking outside the media
+    document.getElementById("lightbox").addEventListener("click", function(event) {
+        if (event.target !== document.getElementById("lightbox-img") &&
+            event.target !== document.getElementById("lightbox-video")) {
+            this.style.display = "none";
+            document.getElementById("lightbox-video").pause(); // Stop video playback when closing
+        }
+    });
+    
+     </script>
     
 
 </body>
