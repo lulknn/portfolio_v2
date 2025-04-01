@@ -404,7 +404,7 @@ a {
     margin-left: 340px;
     padding-right: 40px;
     box-sizing: border-box;
-    width: calc(100% - 340px);
+    width: 30%;
     position: left;
     font-size: 0.9rem;
     font-family: 'Libre Franklin';
@@ -493,6 +493,21 @@ a {
         position: relative;
         left: 40px;
         max-width: 89%; /* Slideshow takes full width */
+    }
+
+    .curriculum-container {
+        margin-bottom: -700px;
+        margin-left: 40px;
+        width: 80%;
+        font-size: 0.9rem;
+        font-family: 'Libre Franklin';
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    .copyright {
+        margin-bottom: 10px;
+        margin-left: -20px;
     }
 }
 
