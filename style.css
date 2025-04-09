@@ -265,8 +265,7 @@ body {
 
 .description-title {
     position: relative;
-    font-family: 'Fraunces9ptSuperSoft-ThinItalic';
-    font-style: normal;
+    font-family: 'Fraunces9ptSuperSoft-LightItalic';
     font-weight: 400;
     font-size: 1.3rem;
     letter-spacing: -0.5px;
@@ -344,8 +343,7 @@ a {
     position: relative;
     font-size: 0.9rem;
     margin-top: 24px;
-    font-family: 'Fraunces9ptSuperSoft-ThinItalic';
-    font-style: normal;
+    font-family: 'Fraunces9ptSuperSoft-LightItalic';
     font-weight: 400;
     letter-spacing: -0.5px;
     opacity: 0;  /* Fully transparent */
@@ -422,7 +420,8 @@ a {
 
 .curriculum-title {
     font-size: 0.8rem;
-    font-family: 'Fraunces9ptSuperSoft-ThinItalic';
+    font-family: 'Fraunces9ptSuperSoft-LightItalic';
+    font-style: Italic;
     font-weight: 500;
 }
 
