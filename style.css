@@ -196,7 +196,7 @@ body {
 }
 
 
-.slideshow img, .slideshow video {
+.slideshow img, .slideshow video, iframe {
     width: 100%; /* Full column width */
     display: block;
     border-radius: 5px;
