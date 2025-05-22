@@ -66,18 +66,39 @@
       gtag('config', 'G-1BLXVM2X1R');
     </script>
 
-
 <script>
-    document.querySelectorAll(".slideshow img").forEach(img => {
-        img.addEventListener("click", function() {
-            const lightbox = document.getElementById("lightbox");
-            const lightboxImg = document.getElementById("lightbox-img");
-    
-            lightbox.style.display = "flex"; // Show lightbox
-            lightboxImg.src = this.src; // Set image source
-        });
+    document.querySelector(".hover-area").addEventListener("click", function() {
+        document.querySelector(".description-additional").classList.toggle("hidden");
     });
-    
+</script>
+
+<script>document.querySelectorAll(".slideshow img, .slideshow video").forEach(media => {
+    media.addEventListener("click", function() {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        const lightboxVideo = document.getElementById("lightbox-video");
+
+        lightbox.style.display = "flex"; // Show lightbox
+
+        // If the clicked media is an image
+        if (this.tagName === "IMG") {
+            lightboxImg.src = this.src;
+            lightboxImg.style.display = "block"; // Show image
+            lightboxVideo.style.display = "none"; // Hide video
+            lightboxVideo.pause(); // Stop any playing video
+            lightboxVideo.removeAttribute("controls"); // Remove controls
+        } 
+        // If the clicked media is a video
+        else if (this.tagName === "VIDEO") {
+            lightboxVideo.src = this.src;
+            lightboxVideo.style.display = "block"; // Show video
+            lightboxImg.style.display = "none"; // Hide image
+            lightboxVideo.removeAttribute("controls"); // Remove controls
+            lightboxVideo.loop = true; // Enable looping
+            lightboxVideo.play(); // Start video playback automatically
+        }
+    });
+});
     // Close lightbox when clicking outside the image
     document.getElementById("lightbox").addEventListener("click", function(event) {
         if (event.target !== document.getElementById("lightbox-img")) {
