@@ -145,12 +145,12 @@
             attempts++;
             var connectTo = positions[Math.floor(Math.random() * positions.length)];
             var angle = Math.random() * 2 * Math.PI;
-            var distance = Math.random() * 70 + 50; // Increased spacing range: 50 to 120 pixels
+            var distance = Math.random() * 20 + 150; // Increased spacing range: 50 to 120 pixels
             
             var newX = connectTo.x + Math.cos(angle) * distance;
             var newY = connectTo.y + Math.sin(angle) * distance;
             
-            var padding = 20;
+            var padding = 15;
             newX = Math.max(menuOffset, Math.min(newX, bodyWidth - imgWidth - padding));
             newY = Math.max(padding, Math.min(newY, bodyHeight - imgHeight - padding));
             
@@ -159,7 +159,7 @@
                 var pos = positions[j];
                 var dx = newX - pos.x;
                 var dy = newY - pos.y;
-                var minDistance = 100; // Increased minimum spacing to 100px
+                var minDistance = 130; // Increased minimum spacing to 100px
                 if (Math.sqrt(dx * dx + dy * dy) < minDistance) {
                     overlaps = true;
                     break;
