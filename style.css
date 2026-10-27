@@ -94,8 +94,9 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 0.9rem;
-    color: #9688ff;
-    text-shadow: 0 0 4px rgb(139, 126, 255);
+    color: #e75358;
+    text-shadow: 0 0 4px #e75358;
+    
 }
 
 .menu-container ul, .menu-container li{
