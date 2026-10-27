@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="dahlia" />
+    <link rel="shortcut icon" type="image/ico" href="img/favicon.gif" />
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <title> House of Love </title>
+
+
+
+</head>
+
+
+<body>
+
+    <div class="main-container">
+
+        <div class="menu-container">
+            <ul><li><a href="/index.html">lucie kenny</a></li>
+                <br>
+                <li><a href="/projects/projects.html">projects</a></li>
+                <li><a href="/lettering.html">lettering</a></li>
+                <li><a href="/miscellaneous/miscellaneous.html">miscellaneous</a></li>
+                <li><a href="/about.html">about</a></li>
+            </ul>
+
+        </div>
+
+        
+        <div class="description-container">
+            <h2 class="description-title">House of Love</h2>
+            <h2 class="description-year">2026</h2>
+            <p class="description-text"> 
+                House of Love is the first book by American photographer Shelby Duncan. It documents a creative community in Hollywood, Los Angeles, between 2009 and 2015: an intimate narrative built from living archives, capturing a generation before the rise of social media and curated self-image.
+                <br><br>
+                Designed as a journal-like object blending photography, ephemera, and personal testimonies, the book traces the story of a place where more than 500 artists lived and created together, composing their collective memory in the process. Photographed in the early 2010s, before smartphones became omnipresent, House of Love captures the energy and freedom of youth with a rare spontaneity.
+                <br><br>
+                The book is divided into eleven chapters, each of them introduced in the form of a record sleeve bearing a title and a tracklist curated by Shelby. Each colorful sleeve showcases the typeface Dahlia (released in 2021 by vj-type) in a psychedelic setting - a modern tribute to Shelby’s visual inspirations. The title of the book uses a customized version of the same typeface.
+                <br><br>
+                This project culminated with the artist’s work being exhibited at the Rencontres Photographiques d’Arles, one of the most acclaimed photography festivals in the world.
+            </p>
+
+            <div class="hover-area"></div>
+
+            <h2 class="description-additional">
+                Creative Direction: Shelby Duncan
+                <br>Published by: 37.2 Editions
+                <br>Editorial Direction: Shelby Duncan & 37.2 Editions
+                <br>Graphic Design: Lola Li & Lucie Kenny
+                <br>Lettering: Lucie Kenny
+                <br>Editorial Production: Rose Long, Lola Drai, Vanina Esdras, Elodie Turiaf, <br>Vanessa Touati, Vanina Esdras, Elodie Turiaf, Vanessa Touati, Cathy Dayoub
+                <br>Copy Editor: Jacqueline Suskin
+                <br>Contributing Editor: Sarai Fiszel
+                <br>Color Process: Processus Photo
+                <br>Event Photography: Rémi Desclaux
+            
+            </div>
+
+        <div id="lightbox" class="lightbox">
+            <img class="lightbox-content" id="lightbox-img">
+            <video class="lightbox-content" id="lightbox-video" controls></video>
+        </div>
+
+        <div class="slideshow">
+            <img src="/media/HOL_ShelbyDuncan-01.jpg" />
+            <img src="/media/HOL_ShelbyDuncan-02.jpg" />
+            <img src="/media/HOL_ShelbyDuncan-06.jpg" />
+            <img src="/media/HOL_ShelbyDuncan-12.jpg" />
+            <img src="/media/HOL_ShelbyDuncan-03.jpg" />
+            <img src="/media/HOL_ShelbyDuncan-20.jpg" />
+            <img src="/media/HOL_ShelbyDuncan-10.jpg" />
+            <img src="/media/HOL_ShelbyDuncan-17.jpg" />
+            <img src="/media/HOL_ShelbyDuncan-16.jpg" />
+            <img src="/media/HOL_ShelbyDuncan-07.jpg" />
+            <img src="/media/HOL_ShelbyDuncan-04.jpg" />
+            <img src="/media/HOL_ShelbyDuncan-13.jpg" />
+            <img src="/media/HOL_ShelbyDuncan-05.jpg" />
+            <img src="/media/HOL_ShelbyDuncan-15.jpg" />
+            <img src="/media/HOL_ShelbyDuncan-18.jpg" />
+            <img src="/media/HOL_ShelbyDuncan-14.jpg" />
+            <video autoplay muted loop source src="/media/HOL_ANIMATION.mp4" type="video/mp4"></video>
+
+        </div>
+
+    </div>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1BLXVM2X1R"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-1BLXVM2X1R');
+    </script>
+
+<script>
+    document.querySelector(".hover-area").addEventListener("click", function() {
+        document.querySelector(".description-additional").classList.toggle("hidden");
+    });
+</script>
+
+<script>document.querySelectorAll(".slideshow img, .slideshow video").forEach(media => {
+    media.addEventListener("click", function() {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        const lightboxVideo = document.getElementById("lightbox-video");
+
+        lightbox.style.display = "flex"; // Show lightbox
+
+        // If the clicked media is an image
+        if (this.tagName === "IMG") {
+            lightboxImg.src = this.src;
+            lightboxImg.style.display = "block"; // Show image
+            lightboxVideo.style.display = "none"; // Hide video
+            lightboxVideo.pause(); // Stop any playing video
+            lightboxVideo.removeAttribute("controls"); // Remove controls
+        } 
+        // If the clicked media is a video
+        else if (this.tagName === "VIDEO") {
+            lightboxVideo.src = this.src;
+            lightboxVideo.style.display = "block"; // Show video
+            lightboxImg.style.display = "none"; // Hide image
+            lightboxVideo.removeAttribute("controls"); // Remove controls
+            lightboxVideo.loop = true; // Enable looping
+            lightboxVideo.play(); // Start video playback automatically
+        }
+    });
+});
+
+// Close lightbox when clicking outside the media
+document.getElementById("lightbox").addEventListener("click", function(event) {
+    if (event.target !== document.getElementById("lightbox-img") &&
+        event.target !== document.getElementById("lightbox-video")) {
+        this.style.display = "none";
+        document.getElementById("lightbox-video").pause(); // Stop video playback when closing
+    }
+});
+
+ </script>
+
+
+</body>
+
+
+</html>

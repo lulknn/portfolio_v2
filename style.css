@@ -258,7 +258,7 @@ body {
     position: fixed;
     top: 200px;
     left: 40px;
-    max-width: 375px;
+    max-width: 500px;
     width: 100%;
     z-index: 2;
 }
@@ -267,7 +267,7 @@ body {
     position: relative;
     font-family: 'Fraunces9ptSuperSoft-LightItalic';
     font-weight: 400;
-    font-size: 1.3rem;
+    font-size: clamp(1.05rem, 1.3vw, 1rem);
     letter-spacing: -0.5px;
 }
 
@@ -309,10 +309,9 @@ body {
   }
 
   .description-text {
-    
     margin-right: 120px;
-    font-size: 0.9rem;
-    margin-top: 20px;
+    font-size: clamp(0.72rem, 0.85vw, 0.3rem);
+    line-height: 1.4;margin-top: 20px;
     font-family: 'Libre Franklin';
     font-style: normal;
     font-weight: 400;
@@ -331,8 +330,8 @@ a {
 }
 
   .hover-area {
-    width: 1500px; /* Adjust size as needed */
-    height: 1500px;
+    width: 3000px; /* Adjust size as needed */
+    height: 3000px;
     position: absolute;
     top: 2;  /* Adjust positioning if necessary */
     z-index: 10; /* Keeps it on top */
@@ -341,16 +340,18 @@ a {
 
 .description-additional {
     position: relative;
-    font-size: 0.9rem;
     margin-top: 24px;
+    margin-bottom: 0;
+    padding: 0;
     font-family: 'Fraunces9ptSuperSoft-LightItalic';
+    font-size: clamp(0.72rem, 0.85vw, 0.9rem);
+    line-height: 1.25;
     font-weight: 400;
     letter-spacing: -0.5px;
-    opacity: 0;  /* Fully transparent */
-    visibility: hidden; /* Prevents interaction when hidden */
-    transition: opacity 0.5s ease, visibility 0.8s ease;
-
+    opacity: 0;
+    visibility: hidden;
     pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 
 }
 
@@ -447,7 +448,7 @@ a {
 
     .description-container {
         position: fixed; /* Keep it fixed on the left */
-        max-width: 40%; /* Allow description to take full width */
+        max-width: 55%; /* Allow description to take full width */
         top: 200px; /* Ensure it stays at the same vertical position */
         z-index: 200; /* Keep it on top */
     }
@@ -465,7 +466,7 @@ a {
     }
 
     .slideshow {
-        max-width: 55%; /* Slideshow takes full width */
+        max-width: 40%; /* Slideshow takes full width */
         grid-template-columns: 1fr; /* Stack images vertically */
         padding-top: 0; /* Prevent extra space at top */
         
@@ -476,7 +477,7 @@ a {
 @media (max-width: 750px) {
     .description-container {
         font-size: 0.8rem; /* Fixed width */
-        max-width: 80%; /* Allow description to take full width */
+        max-width: 70%; /* Allow description to take full width */
     }
 
     .image-grid {
@@ -491,7 +492,7 @@ a {
         margin-top: 500px; /* Add more space above the slideshow */
         position: relative;
         left: 40px;
-        max-width: 89%; /* Slideshow takes full width */
+        max-width: 80%; /* Slideshow takes full width */
     }
 
     .curriculum-container {
@@ -516,7 +517,7 @@ a {
 
     .description-container {
         position: fixed; /* Keep description fixed */
-        max-width: 375px; /* Fixed width */
+        max-width: 35%; /* Fixed width */
         margin-right: 30px; /* Space between description and slideshow */
     }
 
@@ -527,7 +528,7 @@ a {
     }
 
     .slideshow {
-        max-width: 70%; /* Slideshow takes 50% of the width */
+        max-width: 60%; /* Slideshow takes 50% of the width */
         right: 40px;
         column-count: 2;
 
